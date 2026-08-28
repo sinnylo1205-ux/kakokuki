@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
-import logo from "@/assets/logo.png.asset.json";
+import { SiteNav } from "@/components/SiteNav";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -38,12 +38,8 @@ const faqs = [
 function FaqPage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 py-8 md:px-10">
-        <Link to="/">
-          <img src={logo.url} alt="KAKO KUKI" className="h-5 w-auto sm:h-6" />
-        </Link>
-      </div>
-      <main className="mx-auto max-w-3xl px-6 pb-16 md:px-10">
+      <SiteNav />
+      <main className="mx-auto max-w-3xl px-6 pt-10 pb-16 md:px-10">
         <h1 className="text-4xl font-black tracking-tighter sm:text-5xl">常見問題</h1>
         <dl className="mt-12 divide-y divide-border border-t border-border">
           {faqs.map((f) => (
