@@ -82,12 +82,12 @@ export function ProductCarousel({
             params={{ slug: p.slug }}
             className="group w-[calc((100%-1.25rem)/2)] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] lg:w-[calc((100%-3.75rem)/4)]"
           >
-            <div className="aspect-square overflow-hidden bg-secondary">
+            <div className={`aspect-square overflow-hidden ${variant === "box" ? "bg-white" : "bg-secondary"}`}>
               <img
                 src={variant === "box" ? (p.boxImage ?? p.image) : p.image}
                 alt={p.name}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                className={`h-full w-full transition-transform ${variant === "box" ? "object-contain" : "object-cover"}`.concat(" ")+"transition-transform duration-500 ease-out group-hover:scale-105"
               />
             </div>
             <div className="mt-4">
