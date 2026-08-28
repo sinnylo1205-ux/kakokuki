@@ -3,8 +3,9 @@ import { useState } from "react";
 import { getProduct, products, formatPrice } from "@/data/products";
 import { ImageMagnifier } from "@/components/ImageMagnifier";
 import { ProductCard } from "@/components/ProductCard";
+import type { Product } from "@/data/products";
 import { SiteFooter } from "@/components/SiteFooter";
-import logo from "@/assets/logo.png.asset.json";
+import { SiteNav } from "@/components/SiteNav";
 
 export const Route = createFileRoute("/product/$slug")({
   loader: ({ params }) => {
@@ -41,29 +42,21 @@ function ProductPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 py-8 md:px-10">
-        <Link to="/" className="inline-block">
-          <img src={logo.url} alt="KAKO KUKI" className="h-5 w-auto sm:h-6" />
-        </Link>
-      </div>
+      <SiteNav />
 
-      <main className="mx-auto max-w-[1400px] px-6 pb-10 md:px-10">
+      <main className="mx-auto max-w-[1400px] px-6 pt-10 pb-10 md:px-10">
         <Link
           to="/"
-          className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase transition-opacity hover:opacity-60"
+          className="text-xs font-bold tracking-[0.2em] text-muted-foreground transition-opacity hover:opacity-60"
         >
           ← 返回全系列
         </Link>
 
         <div className="mt-6 grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <ImageMagnifier
-            src={product.image}
-            alt={product.name}
-            className="aspect-square w-full cursor-crosshair"
-          />
+          <ProductGallery product={product} />
 
           <div className="lg:pt-6">
-            <p className="text-xs font-bold tracking-[0.3em] text-muted-foreground uppercase">
+            <p className="text-xs font-bold tracking-[0.3em] text-muted-foreground">
               {product.kind === "set" ? "六入禮盒" : "單入"}
             </p>
             <h1 className="mt-3 text-3xl leading-tight font-black tracking-tighter sm:text-5xl">
@@ -73,7 +66,7 @@ function ProductPage() {
             <p className="mt-8 text-2xl font-bold tracking-tight">{formatPrice(product.price)}</p>
 
             <div className="mt-10">
-              <p className="text-xs font-bold tracking-[0.2em] uppercase">購買組數</p>
+              <p className="text-xs font-bold tracking-[0.2em]">購買組數</p>
               <div className="mt-3 flex items-center gap-6">
                 <div className="flex items-center border border-border">
                   <button
@@ -105,7 +98,7 @@ function ProductPage() {
                   setAdded(true);
                   window.setTimeout(() => setAdded(false), 2000);
                 }}
-                className="mt-6 h-14 w-full bg-foreground text-sm font-bold tracking-[0.2em] text-background uppercase transition-opacity hover:opacity-85"
+                className="mt-6 h-14 w-full bg-foreground text-sm font-bold tracking-[0.2em] text-background transition-opacity hover:opacity-85"
               >
                 {added ? "已加入購物袋" : "加入購物袋"}
               </button>
@@ -115,14 +108,14 @@ function ProductPage() {
             </div>
 
             <div className="mt-12 border-t border-border pt-8">
-              <h2 className="text-xs font-bold tracking-[0.2em] uppercase">商品說明</h2>
+              <h2 className="text-xs font-bold tracking-[0.2em]">商品說明</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 {product.description}
               </p>
             </div>
 
             <div className="mt-8 border-t border-border pt-8">
-              <h2 className="text-xs font-bold tracking-[0.2em] uppercase">規格</h2>
+              <h2 className="text-xs font-bold tracking-[0.2em]">規格</h2>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 {product.specs.map((s) => (
                   <li key={s}>{s}</li>
@@ -133,7 +126,7 @@ function ProductPage() {
         </div>
 
         <section className="mt-28 border-t border-border pt-10">
-          <h2 className="text-xs font-bold tracking-[0.25em] text-muted-foreground uppercase">
+          <h2 className="text-xs font-bold tracking-[0.25em] text-muted-foreground">
             其他商品
           </h2>
           <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-12 sm:grid-cols-4">
@@ -145,6 +138,36 @@ function ProductPage() {
       </main>
 
       <SiteFooter />
+    </div>
+  );
+}
+
+function ProductGallery({ product }: { product: Product }) {
+  const shots = [product.image, product.boxImage];
+  const [active, setActive] = useState(0);
+
+  return (
+    <div>
+      <ImageMagnifier
+        src={shots[active]!}
+        alt={product.name}
+        className="aspect-square w-full cursor-crosshair"
+      />
+      <div className="mt-4 flex gap-3">
+        {shots.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            aria-label={`檢視圖片 ${i + 1}`}
+            onClick={() => setActive(i)}
+            className={`h-20 w-20 overflow-hidden border bg-secondary transition-colors ${
+              active === i ? "border-foreground" : "border-border"
+            }`}
+          >
+            <img src={src} alt="" className="h-full w-full object-cover" />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

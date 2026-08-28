@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
-import logo from "@/assets/logo.png.asset.json";
+import { SiteNav } from "@/components/SiteNav";
 import set6 from "@/assets/set6.png.asset.json";
 
 export const Route = createFileRoute("/about")({
@@ -24,12 +24,8 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 py-8 md:px-10">
-        <Link to="/">
-          <img src={logo.url} alt="KAKO KUKI" className="h-5 w-auto sm:h-6" />
-        </Link>
-      </div>
-      <main className="mx-auto max-w-3xl px-6 pb-16 md:px-10">
+      <SiteNav />
+      <main className="mx-auto max-w-3xl px-6 pt-10 pb-16 md:px-10">
         <h1 className="text-4xl font-black tracking-tighter sm:text-5xl">品牌故事</h1>
         <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
           KAKO KUKI 相信每個節日都值得一個小小的儀式。我們把祝福寫進籤詩，藏進一塊剛好一口的幸運籤餅裡，
