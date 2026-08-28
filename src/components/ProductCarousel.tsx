@@ -87,7 +87,9 @@ export function ProductCarousel({
                 src={variant === "box" ? (p.boxImage ?? p.image) : p.image}
                 alt={p.name}
                 loading="lazy"
-                className={`h-full w-full transition-transform ${variant === "box" ? "object-contain" : "object-cover"}`.concat(" ")+"transition-transform duration-500 ease-out group-hover:scale-105"
+                className={`h-full w-full transition-transform duration-500 ease-out group-hover:scale-105 ${
+                  variant === "box" ? "object-contain" : "object-cover"
+                }`}
               />
             </div>
             <div className="mt-4">
