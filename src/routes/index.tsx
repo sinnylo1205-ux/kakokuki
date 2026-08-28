@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/hero.png.asset.json";
-import logo from "@/assets/logo.png.asset.json";
 import { products } from "@/data/products";
 import { ProductCard, PlaceholderCard } from "@/components/ProductCard";
 import { SiteFooter } from "@/components/SiteFooter";
