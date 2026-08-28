@@ -18,9 +18,8 @@ const groups: { title: string; links: { label: string; to?: string; href?: strin
   {
     title: "追蹤我們",
     links: [
-      { label: "Instagram", href: "#" },
-      { label: "Facebook", href: "#" },
-      { label: "LINE", href: "#" },
+      { label: "官方社群", href: "#" },
+      { label: "官方帳號", href: "#" },
     ],
   },
 ];
@@ -31,7 +30,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-16 sm:grid-cols-3 md:px-10">
         {groups.map((g) => (
           <div key={g.title}>
-            <h2 className="text-xs font-bold tracking-[0.2em] uppercase opacity-60">{g.title}</h2>
+            <h2 className="text-xs font-bold tracking-[0.2em] opacity-60">{g.title}</h2>
             <ul className="mt-5 space-y-3 text-sm">
               {g.links.map((l) => (
                 <li key={l.label}>
@@ -52,7 +51,7 @@ export function SiteFooter() {
       </div>
       <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-4 border-t border-background/15 px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-10">
         <img src={logo.url} alt="KAKO KUKI" className="h-6 w-auto invert" />
-        <p className="text-xs opacity-50">© {new Date().getFullYear()} KAKO KUKI. All rights reserved.</p>
+        <p className="text-xs opacity-50">© {new Date().getFullYear()} KAKO KUKI 版權所有</p>
       </div>
     </footer>
   );
