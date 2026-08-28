@@ -6,7 +6,7 @@ export function SiteNav() {
     <header className="sticky top-0 z-40 border-b border-border bg-white">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-center px-6 md:h-20 md:px-10">
         <Link to="/" aria-label="KAKO KUKI 首頁" className="inline-block">
-          <img src={logo.url} alt="KAKO KUKI" className="h-5 w-auto md:h-6" />
+          <img src={logo.url} alt="KAKO KUKI" className="h-8 w-auto md:h-12" />
         </Link>
       </div>
     </header>
