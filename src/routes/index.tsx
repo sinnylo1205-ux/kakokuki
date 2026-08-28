@@ -27,13 +27,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative">
+      <section>
         <img src={hero.url} alt="KAKO KUKI 聖誕系列幸運籤餅" className="w-full object-cover" />
-        <img
-          src={logo.url}
-          alt="KAKO KUKI"
-          className="absolute top-5 left-6 h-5 w-auto brightness-0 invert sm:h-8 md:left-10"
-        />
       </section>
 
       <main className="mx-auto max-w-[1400px] px-6 md:px-10">
