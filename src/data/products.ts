@@ -24,7 +24,7 @@ export const products: Product[] = [
     name: "金焰烤雞",
     price: 210,
     image: giftSingle.url,
-    boxImage: luxGifting,
+    boxImage: giftBoxSet6.url,
     kind: "single",
     tagline: "聖誕大餐第一口，先卡位。",
     description:
@@ -36,7 +36,7 @@ export const products: Product[] = [
     name: "珍禮相贈",
     price: 210,
     image: giftSingle.url,
-    boxImage: luxTable,
+    boxImage: giftBoxSet6.url,
     kind: "single",
     tagline: "抱住那個最大的盒子。",
     description:
@@ -48,7 +48,7 @@ export const products: Product[] = [
     name: "綴樹之夜",
     price: 210,
     image: giftSingle.url,
-    boxImage: luxHero,
+    boxImage: giftBoxSet6.url,
     kind: "single",
     tagline: "掛上最後一顆吊飾，聖誕就開始了。",
     description:
@@ -60,7 +60,7 @@ export const products: Product[] = [
     name: "暖韻可可",
     price: 210,
     image: giftSingle.url,
-    boxImage: luxGifting,
+    boxImage: giftBoxSet6.url,
     kind: "single",
     tagline: "一杯下去，整個冬天都暖了。",
     description:
@@ -72,7 +72,7 @@ export const products: Product[] = [
     name: "手書聖誕箋",
     price: 210,
     image: giftSingle.url,
-    boxImage: luxTable,
+    boxImage: giftBoxSet6.url,
     kind: "single",
     tagline: "把想說的話，慢慢寫下來。",
     description:
@@ -84,7 +84,7 @@ export const products: Product[] = [
     name: "麋鹿冠冕",
     price: 210,
     image: giftSingle.url,
-    boxImage: luxHero,
+    boxImage: giftBoxSet6.url,
     kind: "single",
     tagline: "戴上就正式進入聖誕模式。",
     description:
@@ -95,8 +95,8 @@ export const products: Product[] = [
     slug: "christmas-set-6",
     name: "聖誕典藏・六入禮盒",
     price: 1320,
-    image: giftSetSix.url,
-    boxImage: luxTable,
+    image: giftBoxSet6.url,
+    boxImage: giftBoxSet6.url,
     kind: "set",
     tagline: "六款一次收齊，聖誕不留白。",
     description:
