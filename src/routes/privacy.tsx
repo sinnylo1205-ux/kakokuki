@@ -53,7 +53,7 @@ function PrivacyPage() {
         <div className="mt-12 divide-y divide-border border-t border-border">
           {sections.map((s) => (
             <section key={s.title} className="py-8">
-              <h2 className="text-base font-bold tracking-tight">{s.title}</h2>
+              <h2 className="text-lg font-medium tracking-[0.12em]">{s.title}</h2>
               <p className="mt-3 text-sm leading-loose tracking-[0.08em] text-muted-foreground">{s.body}</p>
             </section>
           ))}

@@ -44,7 +44,7 @@ function FaqPage() {
         <dl className="mt-12 divide-y divide-border border-t border-border">
           {faqs.map((f) => (
             <div key={f.q} className="py-8">
-              <dt className="text-base font-bold tracking-tight">{f.q}</dt>
+              <dt className="text-lg font-medium tracking-[0.12em]">{f.q}</dt>
               <dd className="mt-3 text-sm leading-loose tracking-[0.08em] text-muted-foreground">{f.a}</dd>
             </div>
           ))}
