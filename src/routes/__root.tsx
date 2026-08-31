@@ -77,8 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "KAKO KUKI 幸運籤餅" },
-      { name: "description", content: "KAKO KUKI 幸運籤餅，把祝福藏進一塊餅裡。" },
+      { title: "KAKO KUKI 幸運籤餅｜典藏禮盒" },
+      { name: "description", content: "KAKO KUKI 典藏幸運籤餅，以金箔燙印禮盒與手作工藝，獻上最典雅的送禮之選。" },
       { name: "author", content: "KAKO KUKI" },
       { property: "og:site_name", content: "KAKO KUKI" },
       { property: "og:type", content: "website" },
@@ -94,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap",
       },
     ],
   }),
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="zh-Hant">
       <head>
         <HeadContent />
       </head>
