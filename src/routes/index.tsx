@@ -38,6 +38,7 @@ function Index() {
           height={1088}
           className="h-[62vh] w-full object-cover md:h-[76vh]"
         />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent" />
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-14 text-center md:pb-20">
           <p className="text-[0.7rem] tracking-[0.5em] text-primary-foreground/85">
             L I M I T E D&nbsp; C H R I S T M A S
