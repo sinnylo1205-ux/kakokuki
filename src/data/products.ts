@@ -20,7 +20,7 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: "roast-turkey",
-    name: "我要吃烤雞",
+    name: "金焰烤雞",
     price: 210,
     image: giftSingle.url,
     boxImage: luxGifting,
@@ -32,7 +32,7 @@ export const products: Product[] = [
   },
   {
     slug: "big-gift",
-    name: "我要拿禮物",
+    name: "珍禮相贈",
     price: 210,
     image: giftSingle.url,
     boxImage: luxTable,
@@ -44,7 +44,7 @@ export const products: Product[] = [
   },
   {
     slug: "decorate-tree",
-    name: "我要佈置聖誕樹",
+    name: "綴樹之夜",
     price: 210,
     image: giftSingle.url,
     boxImage: luxHero,
@@ -56,7 +56,7 @@ export const products: Product[] = [
   },
   {
     slug: "hot-cocoa",
-    name: "我要喝巧克力可可",
+    name: "暖韻可可",
     price: 210,
     image: giftSingle.url,
     boxImage: luxGifting,
@@ -68,7 +68,7 @@ export const products: Product[] = [
   },
   {
     slug: "christmas-card",
-    name: "我要寫聖誕卡片",
+    name: "手書聖誕箋",
     price: 210,
     image: giftSingle.url,
     boxImage: luxTable,
@@ -80,7 +80,7 @@ export const products: Product[] = [
   },
   {
     slug: "reindeer-headband",
-    name: "爸爸買給我的麋鹿髮箍",
+    name: "麋鹿冠冕",
     price: 210,
     image: giftSingle.url,
     boxImage: luxHero,
@@ -92,7 +92,7 @@ export const products: Product[] = [
   },
   {
     slug: "christmas-set-6",
-    name: "聖誕節要做什麼？六入組",
+    name: "聖誕典藏・六入禮盒",
     price: 1320,
     image: giftSetSix.url,
     boxImage: luxTable,
