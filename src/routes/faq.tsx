@@ -40,12 +40,12 @@ function FaqPage() {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <main className="mx-auto max-w-3xl px-6 pt-10 pb-16 md:px-10">
-        <h1 className="text-4xl font-black tracking-tighter sm:text-5xl">常見問題</h1>
+        <h1 className="text-4xl font-medium tracking-[0.18em] sm:text-5xl">常見問題</h1>
         <dl className="mt-12 divide-y divide-border border-t border-border">
           {faqs.map((f) => (
             <div key={f.q} className="py-8">
-              <dt className="text-base font-bold tracking-tight">{f.q}</dt>
-              <dd className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</dd>
+              <dt className="text-lg font-medium tracking-[0.12em]">{f.q}</dt>
+              <dd className="mt-3 text-sm leading-loose tracking-[0.08em] text-muted-foreground">{f.a}</dd>
             </div>
           ))}
         </dl>

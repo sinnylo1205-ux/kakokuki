@@ -3,7 +3,7 @@ import logo from "@/assets/logo.png.asset.json";
 
 const groups: { title: string; links: { label: string; to?: string; href?: string }[] }[] = [
   {
-    title: "客戶服務",
+    title: "禮賓服務",
     links: [
       { label: "常見問題", to: "/faq" },
       { label: "隱私權政策", to: "/privacy" },
@@ -12,7 +12,7 @@ const groups: { title: string; links: { label: string; to?: string; href?: strin
     ],
   },
   {
-    title: "關於",
+    title: "品牌",
     links: [{ label: "品牌故事", to: "/about" }],
   },
   {
@@ -26,12 +26,12 @@ const groups: { title: string; links: { label: string; to?: string; href?: strin
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 bg-foreground text-background">
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-16 sm:grid-cols-3 md:px-10">
+    <footer className="mt-32 bg-primary text-primary-foreground">
+      <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-20 sm:grid-cols-3 md:px-10">
         {groups.map((g) => (
           <div key={g.title}>
-            <h2 className="text-xs font-bold tracking-[0.2em] opacity-60">{g.title}</h2>
-            <ul className="mt-5 space-y-3 text-sm">
+            <h2 className="text-xs tracking-[0.35em] text-gold">{g.title}</h2>
+            <ul className="mt-6 space-y-4 text-sm tracking-[0.12em]">
               {g.links.map((l) => (
                 <li key={l.label}>
                   {l.to ? (
@@ -49,9 +49,11 @@ export function SiteFooter() {
           </div>
         ))}
       </div>
-      <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-4 border-t border-background/15 px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-10">
+      <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-4 border-t border-gold/30 px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-10">
         <img src={logo.url} alt="KAKO KUKI" className="h-6 w-auto invert" />
-        <p className="text-xs opacity-50">© {new Date().getFullYear()} KAKO KUKI 版權所有</p>
+        <p className="text-xs tracking-[0.2em] opacity-60">
+          © {new Date().getFullYear()} KAKO KUKI 版權所有
+        </p>
       </div>
     </footer>
   );

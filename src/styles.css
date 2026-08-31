@@ -63,30 +63,39 @@
 
 @theme {
   --font-sans:
-    "Noto Sans TC", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    "Cormorant Garamond", "Noto Serif TC", ui-serif, Georgia, "Times New Roman", serif;
+  --font-serif:
+    "Cormorant Garamond", "Noto Serif TC", ui-serif, Georgia, "Times New Roman", serif;
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
 }
 
 :root {
   --radius: 0rem;
-  --background: oklch(0.994 0.002 90);
-  --foreground: oklch(0.16 0.005 60);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.005 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.005 60);
-  --primary: oklch(0.16 0.005 60);
-  --primary-foreground: oklch(0.994 0.002 90);
-  --secondary: oklch(0.965 0.005 90);
-  --secondary-foreground: oklch(0.16 0.005 60);
-  --muted: oklch(0.965 0.005 90);
-  --muted-foreground: oklch(0.52 0.008 70);
-  --accent: oklch(0.52 0.18 28);
-  --accent-foreground: oklch(0.994 0.002 90);
+  /* 象牙／香檳米白 */
+  --background: oklch(0.975 0.012 88);
+  --foreground: oklch(0.24 0.03 170);
+  --card: oklch(0.99 0.008 88);
+  --card-foreground: oklch(0.24 0.03 170);
+  --popover: oklch(0.99 0.008 88);
+  --popover-foreground: oklch(0.24 0.03 170);
+  /* 深孔雀綠 */
+  --primary: oklch(0.3 0.055 175);
+  --primary-foreground: oklch(0.975 0.012 88);
+  --secondary: oklch(0.945 0.014 88);
+  --secondary-foreground: oklch(0.3 0.055 175);
+  --muted: oklch(0.945 0.014 88);
+  --muted-foreground: oklch(0.48 0.025 150);
+  /* 金 */
+  --accent: oklch(0.72 0.09 82);
+  --accent-foreground: oklch(0.24 0.03 170);
+  --gold: oklch(0.72 0.09 82);
+  --gold-soft: oklch(0.86 0.05 88);
   --destructive: oklch(0.52 0.18 28);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.005 90);
-  --input: oklch(0.9 0.005 90);
-  --ring: oklch(0.16 0.005 60);
+  --border: oklch(0.88 0.016 88);
+  --input: oklch(0.88 0.016 88);
+  --ring: oklch(0.3 0.055 175);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -101,6 +110,7 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
+
 
 .dark {
   --background: oklch(0.129 0.042 264.695);

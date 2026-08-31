@@ -47,7 +47,7 @@ function ProductPage() {
       <main className="mx-auto max-w-[1400px] px-6 pt-10 pb-10 md:px-10">
         <Link
           to="/"
-          className="text-xs font-bold tracking-[0.2em] text-muted-foreground transition-opacity hover:opacity-60"
+          className="text-xs tracking-[0.3em] text-muted-foreground transition-opacity hover:opacity-60"
         >
           ← 返回全系列
         </Link>
@@ -56,19 +56,19 @@ function ProductPage() {
           <ProductGallery product={product} />
 
           <div className="lg:pt-6">
-            <p className="text-xs font-bold tracking-[0.3em] text-muted-foreground">
+            <p className="text-[0.7rem] tracking-[0.45em] text-gold">
               {product.kind === "set" ? "六入禮盒" : "單入"}
             </p>
-            <h1 className="mt-3 text-3xl leading-tight font-black tracking-tighter sm:text-5xl">
+            <h1 className="mt-5 text-3xl leading-relaxed font-medium tracking-[0.15em] sm:text-4xl">
               {product.name}
             </h1>
-            <p className="mt-4 text-base text-muted-foreground">{product.tagline}</p>
-            <p className="mt-8 text-2xl font-bold tracking-tight">{formatPrice(product.price)}</p>
+            <p className="mt-6 text-sm leading-loose tracking-[0.08em] text-muted-foreground">{product.tagline}</p>
+            <p className="mt-8 text-2xl tracking-[0.2em]">{formatPrice(product.price)}</p>
 
             <div className="mt-10">
-              <p className="text-xs font-bold tracking-[0.2em]">購買組數</p>
+              <p className="text-xs tracking-[0.35em] text-muted-foreground">購買組數</p>
               <div className="mt-3 flex items-center gap-6">
-                <div className="flex items-center border border-border">
+                <div className="flex items-center border border-gold">
                   <button
                     type="button"
                     aria-label="減少數量"
@@ -77,7 +77,7 @@ function ProductPage() {
                   >
                     −
                   </button>
-                  <span className="w-12 text-center text-sm font-bold">{qty}</span>
+                  <span className="w-12 text-center text-sm tracking-[0.1em]">{qty}</span>
                   <button
                     type="button"
                     aria-label="增加數量"
@@ -88,7 +88,7 @@ function ProductPage() {
                   </button>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  小計 <span className="font-bold text-foreground">{formatPrice(product.price * qty)}</span>
+                  小計 <span className="text-foreground">{formatPrice(product.price * qty)}</span>
                 </p>
               </div>
 
@@ -98,7 +98,7 @@ function ProductPage() {
                   setAdded(true);
                   window.setTimeout(() => setAdded(false), 2000);
                 }}
-                className="mt-6 h-14 w-full bg-foreground text-sm font-bold tracking-[0.2em] text-background transition-opacity hover:opacity-85"
+                className="mt-8 h-14 w-full bg-primary text-sm tracking-[0.4em] text-primary-foreground transition-opacity hover:opacity-85"
               >
                 {added ? "已加入購物袋" : "加入購物袋"}
               </button>
@@ -107,16 +107,16 @@ function ProductPage() {
               </p>
             </div>
 
-            <div className="mt-12 border-t border-border pt-8">
-              <h2 className="text-xs font-bold tracking-[0.2em]">商品說明</h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            <div className="mt-12 border-t border-gold-soft pt-8">
+              <h2 className="text-xs tracking-[0.35em] text-gold">商品說明</h2>
+              <p className="mt-5 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
                 {product.description}
               </p>
             </div>
 
-            <div className="mt-8 border-t border-border pt-8">
-              <h2 className="text-xs font-bold tracking-[0.2em]">規格</h2>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            <div className="mt-8 border-t border-gold-soft pt-8">
+              <h2 className="text-xs tracking-[0.35em] text-gold">規格</h2>
+              <ul className="mt-5 space-y-3 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
                 {product.specs.map((s) => (
                   <li key={s}>{s}</li>
                 ))}
@@ -125,10 +125,8 @@ function ProductPage() {
           </div>
         </div>
 
-        <section className="mt-28 border-t border-border pt-10">
-          <h2 className="text-xs font-bold tracking-[0.25em] text-muted-foreground">
-            其他商品
-          </h2>
+        <section className="mt-28 border-t border-gold-soft pt-10">
+          <h2 className="text-xs tracking-[0.35em] text-gold">其他典藏</h2>
           <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-12 sm:grid-cols-4">
             {others.map((p) => (
               <ProductCard key={p.slug} product={p} />
@@ -160,8 +158,8 @@ function ProductGallery({ product }: { product: Product }) {
             type="button"
             aria-label={`檢視圖片 ${i + 1}`}
             onClick={() => setActive(i)}
-            className={`h-20 w-20 overflow-hidden border bg-secondary transition-colors ${
-              active === i ? "border-foreground" : "border-border"
+            className={`h-20 w-20 overflow-hidden border bg-card transition-colors ${
+              active === i ? "border-primary" : "border-gold-soft"
             }`}
           >
             <img src={src} alt="" className="h-full w-full object-cover" />
