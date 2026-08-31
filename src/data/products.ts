@@ -1,9 +1,5 @@
 import giftSingle from "@/assets/gift-single.png.asset.json";
-import giftSetSix from "@/assets/gift-set-six.png.asset.json";
 import giftBoxSet6 from "@/assets/gift-box-set6.png.asset.json";
-import luxGifting from "@/assets/lux-gifting.jpg";
-import luxTable from "@/assets/lux-table.jpg";
-import luxHero from "@/assets/lux-hero.jpg";
 
 export type Product = {
   slug: string;
