@@ -40,22 +40,6 @@ function Index() {
             </Link>
           </div>
         </section>
-
-        {/* 區塊三 */}
-        <section className="pt-20 pb-24 md:pt-28">
-          <Placeholder label="BANNER 區塊三" className="h-40 w-full md:h-56" />
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Link to="/collection" className="block">
-              <Placeholder label="經典款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
-            </Link>
-            <Link to="/collection" className="block">
-              <Placeholder label="節慶款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
-            </Link>
-            <Link to="/collection" className="block">
-              <Placeholder label="IP 聯名" sublabel="長方形商品圖" className="aspect-[3/4]" />
-            </Link>
-          </div>
-        </section>
       </main>
 
       <SiteFooter />
