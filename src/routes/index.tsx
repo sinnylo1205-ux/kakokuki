@@ -30,8 +30,8 @@ function Index() {
 
       <main className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* 區塊二 */}
-        <section className="pt-16 md:pt-24">
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <section className="border-t border-border pt-16 md:pt-24">
+          <div className="mx-auto mt-8 grid max-w-[680px] grid-cols-1 gap-6 sm:grid-cols-2">
             <Link to="/collection" className="block">
               <Placeholder label="經典款" sublabel="方形商品圖" className="aspect-square" />
             </Link>
@@ -42,7 +42,7 @@ function Index() {
         </section>
 
         {/* 區塊三 */}
-        <section className="pt-20 pb-24 md:pt-28">
+        <section className="mt-16 border-t border-border pt-20 pb-24 md:mt-24 md:pt-28">
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
             <Link to="/collection" className="block">
               <Placeholder label="經典款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
