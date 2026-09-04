@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram } from "lucide-react";
+import logo from "@/assets/logo.png.asset.json";
+
 
 const groups: { title: string; links: { label: string; to?: string; href?: string }[] }[] = [
   {
