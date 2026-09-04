@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
-import set6 from "@/assets/set6.png.asset.json";
+import { Placeholder } from "@/components/Placeholder";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -35,12 +35,7 @@ function AboutPage() {
           聖誕系列由品牌角色「聖誕跳跳」領軍——她會吃烤雞、拆禮物、佈置聖誕樹、捧著熱可可、寫聖誕卡片，
           還會戴上爸爸買的麋鹿髮箍。六款設計是六種過節的方式，你可以挑一款，也可以整組收齊。
         </p>
-        <img
-          src={set6.url}
-          alt="KAKO KUKI 聖誕系列六款幸運籤餅"
-          className="mt-12 w-full object-cover"
-          loading="lazy"
-        />
+        <Placeholder label="品牌形象圖" className="mt-12 h-72 w-full" />
       </main>
       <SiteFooter />
     </div>
