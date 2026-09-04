@@ -28,20 +28,6 @@ function Index() {
       {/* 區塊一：HERO */}
       <Placeholder label="HERO" className="h-[52vh] w-full md:h-[64vh]" />
 
-      <main className="mx-auto max-w-[1400px] px-6 md:px-10">
-        {/* 區塊二 */}
-        <section className="pt-16 md:pt-24">
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <Link to="/collection" className="block">
-              <Placeholder label="經典款" sublabel="方形商品圖" className="aspect-square" />
-            </Link>
-            <Link to="/collection" className="block">
-              <Placeholder label="聖誕款" sublabel="方形商品圖" className="aspect-square" />
-            </Link>
-          </div>
-        </section>
-      </main>
-
       <SiteFooter />
     </div>
   );
