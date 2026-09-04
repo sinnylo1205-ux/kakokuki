@@ -9,8 +9,7 @@ export const Route = createFileRoute("/")({
       { title: "KAKO KUKI 幸運籤餅｜典藏禮盒官方網站" },
       {
         name: "description",
-        content:
-          "KAKO KUKI 幸運籤餅官方網站，經典款與節慶款典藏禮盒、企業客製化服務與會員專屬權益。",
+        content: "KAKO KUKI 幸運籤餅官方網站，經典款與節慶款典藏禮盒、企業客製化服務與會員專屬權益。",
       },
       { property: "og:title", content: "KAKO KUKI 幸運籤餅" },
       { property: "og:description", content: "經典款與節慶款典藏禮盒、企業客製化與會員權益。" },
@@ -32,7 +31,6 @@ function Index() {
       <main className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* 區塊二 */}
         <section className="pt-16 md:pt-24">
-          <Placeholder label="BANNER 區塊二" className="h-24 w-full md:h-32" />
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <Link to="/collection" className="block">
               <Placeholder label="經典款" sublabel="方形商品圖" className="aspect-square" />
