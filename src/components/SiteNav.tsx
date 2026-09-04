@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ShoppingBag, User } from "lucide-react";
+import logo from "@/assets/logo.png.asset.json";
+
 
 const navLinks = [
   { label: "品牌簡介", to: "/about" },
@@ -13,8 +15,9 @@ export function SiteNav() {
     <header className="sticky top-0 z-40 border-b border-border bg-card">
       <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between gap-6 px-6 md:h-24 md:px-10">
         <Link to="/" aria-label="KAKO KUKI 首頁" className="shrink-0">
-          <span className="text-xl tracking-[0.25em] md:text-2xl">KAKO KUKI</span>
+          <img src={logo.url} alt="KAKO KUKI" className="h-10 w-auto md:h-14" />
         </Link>
+
 
         <nav className="hidden flex-1 items-center justify-center gap-8 lg:flex">
           {navLinks.map((l) => (
