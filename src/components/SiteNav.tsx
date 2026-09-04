@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ShoppingBag, User } from "lucide-react";
+import logo from "@/assets/logo.png.asset.json";
+
 
 const navLinks = [
   { label: "品牌簡介", to: "/about" },
