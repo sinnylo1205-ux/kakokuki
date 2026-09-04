@@ -29,11 +29,10 @@ function Index() {
       {/* 區塊一：HERO */}
       <Placeholder label="HERO" className="h-[52vh] w-full md:h-[64vh]" />
 
-      <main className="mx-auto max-w-[1400px] px-6 md:px-10">
-        {/* 區塊二 */}
-        <section className="pt-16 md:pt-24">
-          <Placeholder label="BANNER 區塊二" className="h-24 w-full md:h-32" />
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {/* 區塊二：淺色漸層 */}
+      <section className="bg-gradient-to-b from-background to-secondary/70">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-6">
             <Link to="/collection" className="block">
               <Placeholder label="經典款" sublabel="方形商品圖" className="aspect-square" />
             </Link>
@@ -41,24 +40,26 @@ function Index() {
               <Placeholder label="聖誕款" sublabel="方形商品圖" className="aspect-square" />
             </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 區塊三 */}
-        <section className="pt-20 pb-24 md:pt-28">
-          <Placeholder label="BANNER 區塊三" className="h-40 w-full md:h-56" />
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Link to="/collection" className="block">
-              <Placeholder label="經典款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
-            </Link>
+      {/* 區塊三：深一階漸層 */}
+      <section className="bg-gradient-to-b from-secondary/70 to-muted">
+        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Link to="/collection" className="block">
               <Placeholder label="節慶款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
+            </Link>
+            <Link to="/collection" className="block">
+              <Placeholder label="經典款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
             </Link>
             <Link to="/collection" className="block">
               <Placeholder label="IP 聯名" sublabel="長方形商品圖" className="aspect-[3/4]" />
             </Link>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
 
       <SiteFooter />
     </div>
