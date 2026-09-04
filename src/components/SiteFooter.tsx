@@ -1,7 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram } from "lucide-react";
-import logo from "@/assets/logo.png.asset.json";
-
 
 const groups: { title: string; links: { label: string; to?: string; href?: string }[] }[] = [
   {
@@ -29,12 +27,11 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-border bg-card">
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-16 md:grid-cols-4 md:px-10">
         <div>
-          <Link to="/" aria-label="KAKO KUKI 首頁" className="inline-block">
-            <img src={logo.url} alt="KAKO KUKI" className="h-8 w-auto" />
+          <Link to="/" className="text-lg tracking-[0.3em]">
+            KAKO KUKI
           </Link>
           <p className="mt-3 text-xs tracking-[0.35em] text-muted-foreground">TAIPEI</p>
         </div>
-
 
         {groups.map((g) => (
           <div key={g.title}>
