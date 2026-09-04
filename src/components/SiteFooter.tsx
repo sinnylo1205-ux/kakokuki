@@ -1,37 +1,42 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/logo.png.asset.json";
+import { Facebook, Instagram } from "lucide-react";
 
 const groups: { title: string; links: { label: string; to?: string; href?: string }[] }[] = [
   {
-    title: "禮賓服務",
+    title: "關於我們",
     links: [
-      { label: "常見問題", to: "/faq" },
-      { label: "隱私權政策", to: "/privacy" },
-      { label: "退換貨說明", to: "/faq" },
-      { label: "聯絡我們", href: "mailto:hello@kakokuki.com" },
+      { label: "品牌簡介", to: "/about" },
+      { label: "幸運籤餅", to: "/collection" },
+      { label: "企業客製化專區", to: "/custom" },
+      { label: "會員權益", to: "/membership" },
     ],
   },
   {
-    title: "品牌",
-    links: [{ label: "品牌故事", to: "/about" }],
-  },
-  {
-    title: "追蹤我們",
+    title: "聯繫我們",
     links: [
-      { label: "官方社群", href: "#" },
-      { label: "官方帳號", href: "#" },
+      { label: "常見問題", to: "/faq" },
+      { label: "宅配 / 退換貨規則", to: "/faq" },
+      { label: "隱私權政策", to: "/privacy" },
+      { label: "服務信箱", href: "mailto:hello@kakokuki.com" },
     ],
   },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 bg-primary text-primary-foreground">
-      <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-20 sm:grid-cols-3 md:px-10">
+    <footer className="mt-24 border-t border-border bg-card">
+      <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-16 md:grid-cols-4 md:px-10">
+        <div>
+          <Link to="/" className="text-lg tracking-[0.3em]">
+            KAKO KUKI
+          </Link>
+          <p className="mt-3 text-xs tracking-[0.35em] text-muted-foreground">TAIPEI</p>
+        </div>
+
         {groups.map((g) => (
           <div key={g.title}>
-            <h2 className="text-xs tracking-[0.35em] text-gold">{g.title}</h2>
-            <ul className="mt-6 space-y-4 text-sm tracking-[0.12em]">
+            <h2 className="text-sm tracking-[0.2em]">{g.title}</h2>
+            <ul className="mt-6 space-y-4 text-sm tracking-[0.1em] text-muted-foreground">
               {g.links.map((l) => (
                 <li key={l.label}>
                   {l.to ? (
@@ -48,11 +53,23 @@ export function SiteFooter() {
             </ul>
           </div>
         ))}
+
+        <div>
+          <h2 className="text-sm tracking-[0.2em]">關注我們的社群</h2>
+          <div className="mt-6 flex gap-5 text-muted-foreground">
+            <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-60">
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a href="#" aria-label="Facebook" className="transition-opacity hover:opacity-60">
+              <Facebook className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
       </div>
-      <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-4 border-t border-gold/30 px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-10">
-        <img src={logo.url} alt="KAKO KUKI" className="h-6 w-auto invert" />
-        <p className="text-xs tracking-[0.2em] opacity-60">
-          © {new Date().getFullYear()} KAKO KUKI 版權所有
+
+      <div className="border-t border-border py-6">
+        <p className="text-center text-xs tracking-[0.15em] text-muted-foreground">
+          © KAKO KUKI {new Date().getFullYear()}　版權所有
         </p>
       </div>
     </footer>
