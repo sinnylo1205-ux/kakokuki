@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CollectionRouteImport } from './routes/collection'
+import { Route as CustomRouteImport } from './routes/custom'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as MembershipRouteImport } from './routes/membership'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
@@ -25,9 +28,24 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CollectionRoute = CollectionRouteImport.update({
+  id: '/collection',
+  path: '/collection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomRoute = CustomRouteImport.update({
+  id: '/custom',
+  path: '/custom',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembershipRoute = MembershipRouteImport.update({
+  id: '/membership',
+  path: '/membership',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -44,14 +62,20 @@ const ProductSlugRoute = ProductSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/collection': typeof CollectionRoute
+  '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
+  '/membership': typeof MembershipRoute
   '/privacy': typeof PrivacyRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/collection': typeof CollectionRoute
+  '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
+  '/membership': typeof MembershipRoute
   '/privacy': typeof PrivacyRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -59,22 +83,53 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/collection': typeof CollectionRoute
+  '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
+  '/membership': typeof MembershipRoute
   '/privacy': typeof PrivacyRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/faq' | '/privacy' | '/product/$slug'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/collection'
+    | '/custom'
+    | '/faq'
+    | '/membership'
+    | '/privacy'
+    | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/faq' | '/privacy' | '/product/$slug'
-  id: '__root__' | '/' | '/about' | '/faq' | '/privacy' | '/product/$slug'
+  to:
+    | '/'
+    | '/about'
+    | '/collection'
+    | '/custom'
+    | '/faq'
+    | '/membership'
+    | '/privacy'
+    | '/product/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/collection'
+    | '/custom'
+    | '/faq'
+    | '/membership'
+    | '/privacy'
+    | '/product/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CollectionRoute: typeof CollectionRoute
+  CustomRoute: typeof CustomRoute
   FaqRoute: typeof FaqRoute
+  MembershipRoute: typeof MembershipRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
@@ -95,11 +150,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/collection': {
+      id: '/collection'
+      path: '/collection'
+      fullPath: '/collection'
+      preLoaderRoute: typeof CollectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom': {
+      id: '/custom'
+      path: '/custom'
+      fullPath: '/custom'
+      preLoaderRoute: typeof CustomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/membership': {
+      id: '/membership'
+      path: '/membership'
+      fullPath: '/membership'
+      preLoaderRoute: typeof MembershipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -122,7 +198,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CollectionRoute: CollectionRoute,
+  CustomRoute: CustomRoute,
   FaqRoute: FaqRoute,
+  MembershipRoute: MembershipRoute,
   PrivacyRoute: PrivacyRoute,
   ProductSlugRoute: ProductSlugRoute,
 }

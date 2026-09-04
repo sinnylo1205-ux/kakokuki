@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { getProduct, products, formatPrice } from "@/data/products";
-import { ImageMagnifier } from "@/components/ImageMagnifier";
+import { Placeholder } from "@/components/Placeholder";
 import { ProductCard } from "@/components/ProductCard";
 import type { Product } from "@/data/products";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -141,28 +141,28 @@ function ProductPage() {
 }
 
 function ProductGallery({ product }: { product: Product }) {
-  const shots = [product.image, product.boxImage];
+  const shots = [0, 1];
   const [active, setActive] = useState(0);
 
   return (
     <div>
-      <ImageMagnifier
-        src={shots[active]!}
-        alt={product.name}
-        className="aspect-square w-full cursor-crosshair"
+      <Placeholder
+        label={active === 0 ? "商品主圖" : "盒裝商品圖"}
+        sublabel="圖片待補"
+        className="aspect-square w-full"
       />
       <div className="mt-4 flex gap-3">
-        {shots.map((src, i) => (
+        {shots.map((_, i) => (
           <button
-            key={src}
+            key={i}
             type="button"
             aria-label={`檢視圖片 ${i + 1}`}
             onClick={() => setActive(i)}
-            className={`h-20 w-20 overflow-hidden border bg-card transition-colors ${
-              active === i ? "border-primary" : "border-gold-soft"
+            className={`h-20 w-20 border text-[0.6rem] tracking-[0.1em] text-muted-foreground transition-colors ${
+              active === i ? "border-primary" : "border-dashed border-foreground/30"
             }`}
           >
-            <img src={src} alt="" className="h-full w-full object-cover" />
+            {i === 0 ? "主圖" : "盒裝"}
           </button>
         ))}
       </div>

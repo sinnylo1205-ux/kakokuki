@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { formatPrice, type Product } from "@/data/products";
+import { Placeholder } from "@/components/Placeholder";
 
 type Variant = "plain" | "box";
 
@@ -87,14 +88,10 @@ export function ProductCarousel({
             params={{ slug: p.slug }}
             className="group w-[calc((100%-1.5rem)/2)] shrink-0 snap-start sm:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-4.5rem)/4)]"
           >
-            <div className="aspect-square overflow-hidden border border-gold-soft bg-card">
-              <img
-                src={variant === "box" ? (p.boxImage ?? p.image) : p.image}
-                alt={p.name}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
-              />
-            </div>
+            <Placeholder
+              label={variant === "box" ? "盒裝商品圖" : "商品圖"}
+              className="aspect-square"
+            />
             <div className="mt-5 text-center">
               <h3 className="text-lg leading-snug font-medium tracking-wide">{p.name}</h3>
               <p className="mt-2 text-sm tracking-[0.15em] text-muted-foreground">
