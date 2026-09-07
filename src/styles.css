@@ -61,11 +61,31 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* 數字一律使用無襯線字體（僅覆蓋數字與貨幣符號） */
+@font-face {
+  font-family: "KakoNumerals";
+  src: local("Helvetica Neue"), local("Helvetica"), local("Arial"),
+    local("Segoe UI"), local("Roboto"), local("Noto Sans");
+  unicode-range: U+0030-0039, U+0024, U+0025, U+002B, U+002D, U+00A5, U+FF04;
+  font-display: swap;
+}
+@font-face {
+  font-family: "KakoNumerals";
+  font-weight: 700;
+  src: local("Helvetica Neue Bold"), local("Helvetica Bold"), local("Arial Bold"),
+    local("Segoe UI Bold"), local("Roboto Bold"), local("Noto Sans Bold");
+  unicode-range: U+0030-0039, U+0024, U+0025, U+002B, U+002D, U+00A5, U+FF04;
+  font-display: swap;
+}
+
 @theme {
   --font-sans:
-    "Cormorant Garamond", "Noto Serif TC", ui-serif, Georgia, "Times New Roman", serif;
+    "KakoNumerals", "Cormorant Garamond", "Noto Serif TC", ui-serif, Georgia,
+    "Times New Roman", serif;
   --font-serif:
-    "Cormorant Garamond", "Noto Serif TC", ui-serif, Georgia, "Times New Roman", serif;
+    "KakoNumerals", "Cormorant Garamond", "Noto Serif TC", ui-serif, Georgia,
+    "Times New Roman", serif;
+
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
 }
@@ -155,5 +175,16 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  html {
+    font-size: 112.5%;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 118.75%;
+    }
   }
 }
