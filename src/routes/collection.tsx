@@ -30,6 +30,9 @@ function CollectionPage() {
         <div className="mt-20">
           <ProductCarousel title="聖誕款" products={products} variant="box" />
         </div>
+        <div className="mt-20">
+          <ProductCarousel title="IP 聯名款" products={products} />
+        </div>
       </main>
       <SiteFooter />
     </div>

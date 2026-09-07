@@ -6,7 +6,6 @@ const navLinks = [
   { label: "品牌簡介", to: "/about" },
   { label: "幸運籤餅", to: "/collection" },
   { label: "企業客製化專區", to: "/custom" },
-  { label: "會員權益", to: "/membership" },
 ];
 
 export function SiteNav() {
