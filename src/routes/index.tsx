@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Button } from "@/components/ui/button";
 import cookie1 from "@/assets/fortune-cookie-1.png.asset.json";
 import cookie2 from "@/assets/fortune-cookie-2.png.asset.json";
@@ -113,6 +114,7 @@ function Index() {
       </main>
 
       <SiteFooter />
+      <ThemeSwitcher />
     </div>
   );
 }
