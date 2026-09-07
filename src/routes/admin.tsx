@@ -24,7 +24,7 @@ const navItems = [
 
 function AdminLayout() {
   return (
-    <div className="flex min-h-screen bg-secondary/40">
+    <div className="admin-sans flex min-h-screen bg-secondary/40">
       <aside className="hidden w-64 shrink-0 border-r border-border bg-card md:block">
         <div className="border-b border-border px-6 py-6">
           <p className="text-xl tracking-[0.15em]">KAKO KUKI 後台</p>
@@ -65,3 +65,4 @@ function AdminLayout() {
     </div>
   );
 }
+
