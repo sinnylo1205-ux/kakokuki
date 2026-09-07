@@ -106,9 +106,9 @@ function AdminDashboard() {
                 <YAxis tickFormatter={(v: number) => `$${v.toLocaleString("en-US")}`} fontSize={11} />
                 <Tooltip formatter={(v: number) => `NT$${v.toLocaleString("en-US")}`} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Bar dataKey="paid" name="已匯款金額" fill="hsl(var(--primary))" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="unpaid" name="未匯款金額" fill="hsl(var(--muted-foreground))" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="total" name="總營收（未付＋已付）" fill="hsl(var(--foreground))" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="paid" name="已匯款金額" fill="var(--primary)" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="unpaid" name="未匯款金額" fill="var(--muted-foreground)" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="total" name="總營收（未付＋已付）" fill="var(--foreground)" radius={[2, 2, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -125,7 +125,7 @@ function AdminDashboard() {
                 <XAxis dataKey="month" tickLine={false} fontSize={12} />
                 <YAxis fontSize={11} allowDecimals={false} />
                 <Tooltip formatter={(v: number) => `${v} 筆`} />
-                <Bar dataKey="count" name="訂單數" fill="hsl(var(--primary))" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="count" name="訂單數" fill="var(--primary)" radius={[2, 2, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -146,7 +146,7 @@ function AdminDashboard() {
               <div className="h-6 flex-1 rounded-full bg-secondary">
                 <div
                   className="h-6 rounded-full bg-primary"
-                  style={{ width: `${(p.count / topProducts[0].count) * 100}%` }}
+                  style={{ width: `${(p.count / (topProducts[0]?.count ?? 1)) * 100}%` }}
                 />
               </div>
               <span className="w-10 shrink-0 text-right text-sm font-sans">{p.count}</span>
