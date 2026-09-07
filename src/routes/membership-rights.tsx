@@ -3,7 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
 
-export const Route = createFileRoute("/membership")({
+export const Route = createFileRoute("/membership-rights")({
   head: () => ({
     meta: [
       { title: "會員權益｜KAKO KUKI" },
