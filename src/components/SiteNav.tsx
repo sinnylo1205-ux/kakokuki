@@ -29,12 +29,13 @@ export function SiteNav() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-5">
-          <Link to="/membership" aria-label="會員" className="transition-opacity hover:opacity-60">
+          <Link to="/account" aria-label="會員" className="transition-opacity hover:opacity-60">
             <User className="h-5 w-5" />
           </Link>
-          <button type="button" aria-label="購物車" className="transition-opacity hover:opacity-60">
+          <Link to="/cart" aria-label="購物車" className="transition-opacity hover:opacity-60">
             <ShoppingBag className="h-5 w-5" />
-          </button>
+          </Link>
+
         </div>
       </div>
 

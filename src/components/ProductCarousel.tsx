@@ -11,11 +11,14 @@ export function ProductCarousel({
   subtitle,
   products,
   variant = "plain",
+  namePrefix,
 }: {
   title: string;
   subtitle?: string;
   products: Product[];
   variant?: Variant;
+  /** 以 prefix-1、prefix-2… 取代商品名稱顯示 */
+  namePrefix?: string;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
@@ -81,7 +84,7 @@ export function ProductCarousel({
         ref={trackRef}
         className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {products.map((p) => (
+        {products.map((p, idx) => (
           <Link
             key={p.slug}
             to="/product/$slug"
@@ -93,7 +96,9 @@ export function ProductCarousel({
               className="aspect-square"
             />
             <div className="mt-5 text-center">
-              <h3 className="text-lg leading-snug font-medium tracking-wide">{p.name}</h3>
+              <h3 className="text-lg leading-snug font-medium tracking-wide">
+                {namePrefix ? `${namePrefix}-${idx + 1}` : p.name}
+              </h3>
               <p className="mt-2 text-sm tracking-[0.15em] text-muted-foreground">
                 {formatPrice(p.price)}
               </p>
