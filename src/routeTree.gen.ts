@@ -14,7 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CollectionRouteImport } from './routes/collection'
 import { Route as CustomRouteImport } from './routes/custom'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as MembershipRouteImport } from './routes/membership'
+import { Route as MembershipRightsRouteImport } from './routes/membership-rights'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
@@ -43,9 +43,9 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MembershipRoute = MembershipRouteImport.update({
-  id: '/membership',
-  path: '/membership',
+const MembershipRightsRoute = MembershipRightsRouteImport.update({
+  id: '/membership-rights',
+  path: '/membership-rights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -65,7 +65,7 @@ export interface FileRoutesByFullPath {
   '/collection': typeof CollectionRoute
   '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
-  '/membership': typeof MembershipRoute
+  '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -75,7 +75,7 @@ export interface FileRoutesByTo {
   '/collection': typeof CollectionRoute
   '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
-  '/membership': typeof MembershipRoute
+  '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -86,7 +86,7 @@ export interface FileRoutesById {
   '/collection': typeof CollectionRoute
   '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
-  '/membership': typeof MembershipRoute
+  '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -98,7 +98,7 @@ export interface FileRouteTypes {
     | '/collection'
     | '/custom'
     | '/faq'
-    | '/membership'
+    | '/membership-rights'
     | '/privacy'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -108,7 +108,7 @@ export interface FileRouteTypes {
     | '/collection'
     | '/custom'
     | '/faq'
-    | '/membership'
+    | '/membership-rights'
     | '/privacy'
     | '/product/$slug'
   id:
@@ -118,7 +118,7 @@ export interface FileRouteTypes {
     | '/collection'
     | '/custom'
     | '/faq'
-    | '/membership'
+    | '/membership-rights'
     | '/privacy'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
@@ -129,7 +129,7 @@ export interface RootRouteChildren {
   CollectionRoute: typeof CollectionRoute
   CustomRoute: typeof CustomRoute
   FaqRoute: typeof FaqRoute
-  MembershipRoute: typeof MembershipRoute
+  MembershipRightsRoute: typeof MembershipRightsRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
@@ -171,11 +171,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/membership': {
-      id: '/membership'
-      path: '/membership'
-      fullPath: '/membership'
-      preLoaderRoute: typeof MembershipRouteImport
+    '/membership-rights': {
+      id: '/membership-rights'
+      path: '/membership-rights'
+      fullPath: '/membership-rights'
+      preLoaderRoute: typeof MembershipRightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -201,7 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   CollectionRoute: CollectionRoute,
   CustomRoute: CustomRoute,
   FaqRoute: FaqRoute,
-  MembershipRoute: MembershipRoute,
+  MembershipRightsRoute: MembershipRightsRoute,
   PrivacyRoute: PrivacyRoute,
   ProductSlugRoute: ProductSlugRoute,
 }
