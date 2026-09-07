@@ -70,7 +70,7 @@ function AccountPage() {
               <div>
                 <p className="text-xs tracking-[0.3em] text-muted-foreground">目前點數</p>
                 <Link
-                  to="/collection"
+                  to="/rewards"
                   className="mt-2 inline-block border-b border-gold text-xl tracking-[0.12em] text-primary transition-opacity hover:opacity-60"
                 >
                   {member.points.toLocaleString("en-US")} 點・前往換購
