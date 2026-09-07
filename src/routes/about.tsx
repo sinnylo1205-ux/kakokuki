@@ -32,8 +32,8 @@ function AboutPage() {
           讓拆開的那一秒成為整天最期待的事。
         </p>
         <p className="mt-5 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
-          聖誕系列由品牌角色「聖誕跳跳」領軍——她會吃烤雞、拆禮物、佈置聖誕樹、捧著熱可可、寫聖誕卡片，
-          還會戴上爸爸買的麋鹿髮箍。六款設計是六種過節的方式，你可以挑一款，也可以整組收齊。
+          我們將以幸運籤餅作為時尚、潮流、設計的載體，拓展幸運籤餅的創作邊界，
+          你可以在這裡找到最有質感、口味最佳的幸運籤餅。
         </p>
         <Placeholder label="品牌形象圖" className="mt-12 h-72 w-full" />
       </main>
