@@ -25,14 +25,15 @@ function CollectionPage() {
       <main className="mx-auto max-w-[1400px] px-6 pt-12 pb-16 md:px-10">
         <h1 className="text-center text-2xl tracking-[0.22em] md:text-3xl">幸運籤餅</h1>
         <div className="mt-14">
-          <ProductCarousel title="經典款" products={products} />
+          <ProductCarousel title="經典款" products={products} namePrefix="classic" />
         </div>
         <div className="mt-20">
-          <ProductCarousel title="聖誕款" products={products} variant="box" />
+          <ProductCarousel title="節慶新上市" products={products} variant="box" />
         </div>
         <div className="mt-20">
-          <ProductCarousel title="IP 聯名款" products={products} />
+          <ProductCarousel title="IP 聯名款" products={products} namePrefix="ip" />
         </div>
+
       </main>
       <SiteFooter />
     </div>
