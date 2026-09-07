@@ -18,6 +18,7 @@ import { Route as CustomRouteImport } from './routes/custom'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as MembershipRightsRouteImport } from './routes/membership-rights'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +66,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RewardsRoute = RewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductSlugRoute = ProductSlugRouteImport.update({
   id: '/product/$slug',
   path: '/product/$slug',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
+  '/rewards': typeof RewardsRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
+  '/rewards': typeof RewardsRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
+  '/rewards': typeof RewardsRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/membership-rights'
     | '/privacy'
+    | '/rewards'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/membership-rights'
     | '/privacy'
+    | '/rewards'
     | '/product/$slug'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/membership-rights'
     | '/privacy'
+    | '/rewards'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +169,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   MembershipRightsRoute: typeof MembershipRightsRoute
   PrivacyRoute: typeof PrivacyRoute
+  RewardsRoute: typeof RewardsRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
 
@@ -225,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rewards': {
+      id: '/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof RewardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$slug': {
       id: '/product/$slug'
       path: '/product/$slug'
@@ -245,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   MembershipRightsRoute: MembershipRightsRoute,
   PrivacyRoute: PrivacyRoute,
+  RewardsRoute: RewardsRoute,
   ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport
