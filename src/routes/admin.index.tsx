@@ -71,9 +71,9 @@ function AdminDashboard() {
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <h1 className="text-2xl tracking-[0.12em]">
-                訂單營收（新台幣）- <span className="font-sans">2026</span> 年
+                訂單營收（新台幣）- <span className="admin-sans">2026</span> 年
               </h1>
-              <p className="mt-1 text-sm font-sans text-muted-foreground">
+              <p className="mt-1 text-sm admin-sans text-muted-foreground">
                 {half === "first" ? "1–6 月" : "7–12 月"}
               </p>
             </div>
@@ -82,13 +82,13 @@ function AdminDashboard() {
                 onClick={() => setHalf("first")}
                 className={`rounded-full px-4 py-2 transition-colors ${half === "first" ? "bg-primary text-primary-foreground" : "text-foreground/70"}`}
               >
-                <span className="font-sans">1–6</span> 月
+                <span className="admin-sans">1–6</span> 月
               </button>
               <button
                 onClick={() => setHalf("second")}
                 className={`rounded-full px-4 py-2 transition-colors ${half === "second" ? "bg-primary text-primary-foreground" : "text-foreground/70"}`}
               >
-                <span className="font-sans">7–12</span> 月
+                <span className="admin-sans">7–12</span> 月
               </button>
             </div>
           </div>
@@ -116,7 +116,7 @@ function AdminDashboard() {
 
         <Card>
           <h2 className="text-2xl tracking-[0.12em]">
-            訂單數量 - <span className="font-sans">2026</span> 年
+            訂單數量 - <span className="admin-sans">2026</span> 年
           </h2>
           <div className="mt-6 h-72">
             <ResponsiveContainer width="100%" height="100%">
@@ -134,7 +134,7 @@ function AdminDashboard() {
 
       <Card>
         <h2 className="text-2xl tracking-[0.12em]">
-          熱門商品（前 <span className="font-sans">5</span> 名）- <span className="font-sans">2026</span> 年
+          熱門商品（前 <span className="admin-sans">5</span> 名）- <span className="admin-sans">2026</span> 年
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
           依訂單建立日期統計該期間內商品出現次數；與上方年份選擇一致
@@ -149,7 +149,7 @@ function AdminDashboard() {
                   style={{ width: `${(p.count / (topProducts[0]?.count ?? 1)) * 100}%` }}
                 />
               </div>
-              <span className="w-10 shrink-0 text-right text-sm font-sans">{p.count}</span>
+              <span className="w-10 shrink-0 text-right text-sm admin-sans">{p.count}</span>
             </li>
           ))}
         </ul>
