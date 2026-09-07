@@ -165,7 +165,7 @@ function AdminInquiries() {
               tab === t ? "bg-card text-foreground" : "text-foreground/70"
             }`}
           >
-            {t} (<span className="font-sans">{counts[t]}</span>)
+            {t} (<span className="admin-sans">{counts[t]}</span>)
           </button>
         ))}
       </div>
@@ -178,11 +178,11 @@ function AdminInquiries() {
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-sans text-lg">{i.id}</span>
+                    <span className="admin-sans text-lg">{i.id}</span>
                     <span className="rounded-full border border-border px-3 py-1 text-xs">{i.tab}</span>
                   </div>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    {i.name}・<span className="font-sans">{i.date}</span>
+                    {i.name}・<span className="admin-sans">{i.date}</span>
                     {i.source ? `・${i.source}` : ""}
                   </p>
                 </div>
@@ -210,7 +210,7 @@ function AdminInquiries() {
                     ].map(([k, v]) => (
                       <div key={k} className="flex gap-4">
                         <dt className="w-24 shrink-0 text-muted-foreground">{k}</dt>
-                        <dd className="font-sans">{v}</dd>
+                        <dd className="admin-sans">{v}</dd>
                       </div>
                     ))}
                   </dl>

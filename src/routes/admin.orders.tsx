@@ -171,15 +171,15 @@ function AdminOrders() {
           <tbody>
             {rows.map((o) => (
               <tr key={o.id} className="border-b border-border align-top">
-                <td className="py-6 font-sans">{o.id}</td>
-                <td className="py-6 font-sans text-muted-foreground">{o.pickup}</td>
+                <td className="py-6 admin-sans">{o.id}</td>
+                <td className="py-6 admin-sans text-muted-foreground">{o.pickup}</td>
                 <td className="py-6">
                   <p>{o.user}</p>
                   {o.manual ? (
                     <span className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs">手動</span>
                   ) : null}
                 </td>
-                <td className="py-6 font-sans">NT$ {o.amount.toLocaleString("en-US")}</td>
+                <td className="py-6 admin-sans">NT$ {o.amount.toLocaleString("en-US")}</td>
                 <td className="py-6">{o.shipping}</td>
                 <td className="py-6">
                   <span className="rounded-full border border-border px-3 py-1 text-xs">{o.payment}</span>
@@ -226,11 +226,11 @@ function AdminOrders() {
         {rows.map((o) => (
           <li key={o.id} className="rounded-xl border border-border p-5 text-sm">
             <div className="flex items-center justify-between">
-              <span className="font-sans">{o.id}</span>
+              <span className="admin-sans">{o.id}</span>
               <span className="rounded-full bg-secondary px-3 py-1 text-xs">{o.status}</span>
             </div>
             <p className="mt-3">{o.user}</p>
-            <p className="mt-1 font-sans text-muted-foreground">
+            <p className="mt-1 admin-sans text-muted-foreground">
               {o.pickup}・NT$ {o.amount.toLocaleString("en-US")}
             </p>
             <p className="mt-1 text-muted-foreground">
