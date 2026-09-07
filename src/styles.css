@@ -200,6 +200,25 @@
   }
 }
 
+@keyframes cookie-marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@utility cookie-marquee-track {
+  animation: cookie-marquee-right 18s steps(5, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
 @layer base {
   html {
     font-size: 112.5%;

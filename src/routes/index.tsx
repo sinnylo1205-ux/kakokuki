@@ -1,7 +1,15 @@
+import { useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ChevronRight } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
+import { Button } from "@/components/ui/button";
+import cookie1 from "@/assets/fortune-cookie-1.png.asset.json";
+import cookie2 from "@/assets/fortune-cookie-2.png.asset.json";
+import cookie3 from "@/assets/fortune-cookie-3.png.asset.json";
+import cookie4 from "@/assets/fortune-cookie-4.png.asset.json";
+import cookie5 from "@/assets/fortune-cookie-5.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,6 +29,19 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const collaborationTrackRef = useRef<HTMLDivElement>(null);
+  const cookies = [cookie1.url, cookie2.url, cookie3.url, cookie4.url, cookie5.url];
+
+  const scrollCollaborations = () => {
+    const track = collaborationTrackRef.current;
+    if (!track) return;
+    const nextPosition = track.scrollLeft + track.clientWidth * 0.82;
+    track.scrollTo({
+      left: nextPosition >= track.scrollWidth - track.clientWidth ? 0 : nextPosition,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -30,8 +51,8 @@ function Index() {
 
       <main className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* 區塊二 */}
-        <section className="border-t border-border pt-16 md:pt-24">
-          <div className="mx-auto mt-8 grid max-w-[680px] grid-cols-1 gap-6 sm:grid-cols-2">
+        <section className="border-t border-border py-10 md:py-14">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <Link to="/collection" className="block">
               <Placeholder label="經典款" sublabel="方形商品圖" className="aspect-square" />
             </Link>
@@ -42,17 +63,51 @@ function Index() {
         </section>
 
         {/* 區塊三 */}
-        <section className="mt-16 border-t border-border pt-20 pb-24 md:mt-24 md:pt-28">
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Link to="/collection" className="block">
-              <Placeholder label="經典款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
-            </Link>
-            <Link to="/collection" className="block">
-              <Placeholder label="節慶款式" sublabel="長方形商品圖" className="aspect-[3/4]" />
-            </Link>
-            <Link to="/collection" className="block">
-              <Placeholder label="IP 聯名" sublabel="長方形商品圖" className="aspect-[3/4]" />
-            </Link>
+        <section className="relative border-t border-border py-16 md:py-24">
+          <div
+            ref={collaborationTrackRef}
+            className="flex snap-x snap-mandatory gap-6 overflow-x-auto pr-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {Array.from({ length: 6 }, (_, index) => (
+              <Link
+                key={index}
+                to="/collection"
+                className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31%]"
+              >
+                <Placeholder label="IP／企業聯名" className="aspect-[3/4]" />
+              </Link>
+            ))}
+          </div>
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            onClick={scrollCollaborations}
+            aria-label="向右瀏覽更多聯名系列"
+            className="absolute right-3 top-1/2 z-10 h-12 w-12 -translate-y-1/2 rounded-full border-foreground/30 bg-background/90 shadow-md md:right-5"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </Button>
+        </section>
+
+        {/* 區塊四 */}
+        <section className="border-t border-border py-16 md:py-24" aria-label="幸運籤餅動態展示">
+          <div className="cookie-marquee overflow-hidden">
+            <div className="cookie-marquee-track flex w-max items-center">
+              {[...cookies, ...cookies].map((src, index) => (
+                <div
+                  key={`${src}-${index}`}
+                  className="flex h-48 w-52 shrink-0 items-center justify-center px-5 sm:h-56 sm:w-64 md:h-72 md:w-80"
+                >
+                  <img
+                    src={src}
+                    alt={`幸運籤餅展示 ${(index % cookies.length) + 1}`}
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
