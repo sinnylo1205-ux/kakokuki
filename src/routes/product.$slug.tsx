@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { getProduct, products, formatPrice } from "@/data/products";
 import { Placeholder } from "@/components/Placeholder";
@@ -35,6 +35,7 @@ export const Route = createFileRoute("/product/$slug")({
 
 function ProductPage() {
   const { product } = Route.useLoaderData();
+  const navigate = useNavigate();
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
@@ -95,17 +96,21 @@ function ProductPage() {
               <button
                 type="button"
                 onClick={() => {
+                  if (added) {
+                    void navigate({ to: "/cart" });
+                    return;
+                  }
                   setAdded(true);
-                  window.setTimeout(() => setAdded(false), 2000);
                 }}
                 className="mt-8 h-14 w-full bg-primary text-sm tracking-[0.4em] text-primary-foreground transition-opacity hover:opacity-85"
               >
-                {added ? "已加入購物袋" : "加入購物袋"}
+                {added ? "已加入，前往購物車頁面" : "加入購物袋"}
               </button>
               <p className="mt-3 text-xs text-muted-foreground">
                 線上結帳功能即將開放，目前僅供選購預覽。
               </p>
             </div>
+
 
             <div className="mt-12 border-t border-gold-soft pt-8">
               <h2 className="text-xs tracking-[0.35em] text-gold">商品說明</h2>
