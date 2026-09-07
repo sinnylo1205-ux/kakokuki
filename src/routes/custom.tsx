@@ -147,12 +147,10 @@ function CustomPage() {
         {/* 區塊三：企業聯名合作 */}
         <section className="mt-24 border-t border-gold-soft pt-16">
           <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">企業聯名合作</h2>
-          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {["聯名一", "聯名二", "聯名三", "聯名四", "聯名五", "聯名六", "聯名七", "聯名八"].map(
-              (n) => (
-                <Placeholder key={n} label={n} className="aspect-square" />
-              ),
-            )}
+          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3">
+            {["聯名一", "聯名二", "聯名三"].map((n) => (
+              <Placeholder key={n} label={n} className="aspect-square" />
+            ))}
           </div>
         </section>
 
