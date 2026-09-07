@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { getProduct, products, formatPrice } from "@/data/products";
 import { Placeholder } from "@/components/Placeholder";
