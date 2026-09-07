@@ -173,8 +173,7 @@ function CustomPage() {
                       <p className="mt-3 text-sm leading-loose tracking-[0.06em] text-muted-foreground">
                         {n.body}
                       </p>
-                     
-                      </span>
+
                     </div>
                   </li>
                 ))}
