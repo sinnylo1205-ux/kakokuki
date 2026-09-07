@@ -155,12 +155,13 @@ function CartPage() {
                   {formatPrice(total)}
                 </span>
               </p>
-              <button
-                type="button"
+              <Link
+                to="/checkout"
                 className="border border-gold px-10 py-4 text-sm tracking-[0.25em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 前往結帳
-              </button>
+              </Link>
+
             </div>
           </>
         )}
