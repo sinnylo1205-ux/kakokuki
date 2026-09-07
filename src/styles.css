@@ -90,6 +90,19 @@
   --color-gold-soft: var(--gold-soft);
 }
 
+/* 後台專用：無襯線字體 */
+@utility admin-sans {
+  font-family:
+    "Noto Sans TC", "KakoNumerals", "Helvetica Neue", Helvetica, Arial,
+    "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+@utility admin-sans-important {
+  font-family:
+    "Noto Sans TC", "KakoNumerals", "Helvetica Neue", Helvetica, Arial,
+    "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+}
+
+
 :root {
   --radius: 0rem;
   /* 象牙／香檳米白 */
