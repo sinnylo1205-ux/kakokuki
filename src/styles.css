@@ -102,6 +102,15 @@
     "PingFang TC", "Microsoft JhengHei", sans-serif !important;
 }
 
+/* 讓 Recharts 圖表文字也使用後台無襯線字體 */
+.admin-sans .recharts-wrapper,
+.admin-sans .recharts-surface text {
+  font-family:
+    "Noto Sans TC", "KakoNumerals", "Helvetica Neue", Helvetica, Arial,
+    "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+
 
 :root {
   --radius: 0rem;
