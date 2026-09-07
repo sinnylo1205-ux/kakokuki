@@ -210,7 +210,7 @@
 }
 
 @utility cookie-marquee-track {
-  animation: cookie-marquee-right 18s steps(5, end) infinite;
+  animation: cookie-marquee-right 10s steps(5, end) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
