@@ -177,3 +177,14 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  html {
+    font-size: 112.5%;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 118.75%;
+    }
+  }
+}
