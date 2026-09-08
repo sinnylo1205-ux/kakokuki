@@ -4,6 +4,8 @@ import { Award, ShieldCheck, HandHeart } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
+import { CmsImage } from "@/components/CmsImage";
+import { useCmsPage } from "@/lib/cms";
 import {
   corporateProducts,
   customCopy,
