@@ -1,7 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
 import { Placeholder } from "@/components/Placeholder";
+import { brandStoryDraft } from "@/data/site-content";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -25,17 +26,63 @@ function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
-      <main className="mx-auto max-w-3xl px-6 pt-10 pb-16 md:px-10">
-        <h1 className="text-4xl font-medium tracking-[0.18em] sm:text-5xl">品牌故事</h1>
-        <p className="mt-8 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
-          KAKO KUKI 為你生活每一天增添儀式感。我們把祝福寫進籤詩，藏進一塊剛好一口的幸運籤餅裡，
-          讓拆開的那一秒成為整天最期待的事。
-        </p>
-        <p className="mt-5 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
-          我們將以幸運籤餅作為時尚、潮流、設計的載體，拓展幸運籤餅的創作邊界，
-          你可以在這裡找到最有質感、口味最佳的幸運籤餅。
-        </p>
-        <Placeholder label="品牌形象圖" className="mt-12 h-72 w-full" />
+      <main className="mx-auto max-w-[1400px] px-6 pt-10 pb-20 md:px-10">
+        <div className="mx-auto max-w-3xl">
+          <h1 className="text-4xl font-medium tracking-[0.18em] sm:text-5xl">品牌故事</h1>
+          <p className="mt-8 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
+            KAKO KUKI 為你生活每一天增添儀式感。我們把祝福寫進籤詩，藏進一塊剛好一口的幸運籤餅裡，
+            讓拆開的那一秒成為整天最期待的事。
+          </p>
+          <p className="mt-5 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
+            我們將以幸運籤餅作為時尚、潮流、設計的載體，拓展幸運籤餅的創作邊界，
+            你可以在這裡找到最有質感、口味最佳的幸運籤餅。
+          </p>
+        </div>
+
+        {/* 06 品牌故事新文案（草稿，待你修改定稿） */}
+        <section className="mx-auto mt-20 max-w-3xl border-t border-gold-soft pt-14">
+          <p className="text-xs tracking-[0.3em] text-muted-foreground">文 案 草 稿 待 定 稿</p>
+          <h2 className="mt-5 text-2xl tracking-[0.16em] md:text-3xl">關於創作，與我們的選擇</h2>
+          {brandStoryDraft.paragraphs.map((p) => (
+            <p
+              key={p.slice(0, 12)}
+              className="mt-6 text-sm leading-loose tracking-[0.08em] text-muted-foreground"
+            >
+              {p}
+            </p>
+          ))}
+        </section>
+
+        {/* 07 品牌影片版位：籤餅落下旋轉、表面切換不同作品 */}
+        <section className="mt-24 border-t border-gold-soft pt-16">
+          <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">品牌影片</h2>
+          <p className="mx-auto mt-5 max-w-[620px] text-center text-xs leading-loose tracking-[0.16em] text-muted-foreground">
+            版 位 已 保 留 ・ 影 片 檔 待 提 供
+          </p>
+
+          <div className="mt-12 grid items-center gap-10 md:grid-cols-5">
+            <div className="md:col-span-3">
+              <Placeholder
+                label="影片：籤餅落下旋轉、餅身切換不同作品（16:9）"
+                className="aspect-video w-full"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <h3 className="text-xl tracking-[0.14em]">版型提案</h3>
+              <ul className="mt-6 space-y-4 text-sm leading-loose tracking-[0.06em] text-muted-foreground">
+                <li>提案一：此處 16:9 影片＋右側短文，靜音自動循環播放。</li>
+                <li>提案二：影片改為滿版橫幅，文字疊在影片下緣。</li>
+                <li>提案三：影片與下方三張形象圖並列，影片為主、圖為輔。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <Placeholder label="形象圖一" className="aspect-[4/5] w-full" />
+            <Placeholder label="形象圖二" className="aspect-[4/5] w-full" />
+            <Placeholder label="形象圖三" className="aspect-[4/5] w-full" />
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </div>
