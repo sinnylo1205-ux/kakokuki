@@ -20,9 +20,8 @@ export const navCopy = {
   about: { id: "nav.about", label: "選單：品牌簡介", zh: "品牌簡介" },
   collection: {
     id: "nav.collection",
-    label: "選單：商品總覽（原「幸運籤餅」，名稱待定稿）",
-    zh: "探索品牌的世界",
-    pending: true,
+    label: "選單：商品總覽（原「幸運籤餅」，已定稿）",
+    zh: "探索我們的籤餅",
   },
   art: {
     id: "nav.art",
@@ -73,11 +72,20 @@ export const customCopy = {
   },
   printedService: {
     id: "custom.printedService",
-    label: "企業頁：印製籤餅服務新名稱（待定稿）",
-    zh: "印製籤餅服務",
+    label: "企業頁：印製籤餅服務新名稱（提案：籤餅畫布，待你確認）",
+    zh: "籤餅畫布・餅身圖樣印製",
     pending: true,
   },
 } satisfies Record<string, CopyEntry>;
+
+/** 品牌故事新文案草稿（06）— 待你修改定稿 */
+export const brandStoryDraft = {
+  pending: true,
+  paragraphs: [
+    "KAKO KUKI 相信一塊餅可以承載一件作品。我們把餅身當成畫布，邀請插畫、水墨、立體造型的創作者，把他們的語言印在最日常的甜點上；每一次合作都以正式授權與分潤進行，讓創作被使用、也被回饋。對剛起步的品牌與工作室，我們提供小量、可負擔的合作方式，讓一個想法不必等到規模夠大才被看見。",
+    "也因為這樣的做法，我們常成為跨國品牌在台灣尋找禮品時的選擇：他們要的不只是好吃，而是一份能說出在地創作故事、細節與品質都站得住腳的禮物。從圖樣授權、籤文撰寫到封套設計，我們把每個環節做成可被驗證的流程，讓一份小小的贈禮，也能代表品牌的態度。",
+  ],
+};
 
 /** 購物車運費資訊（18）— 實際金額待確認 */
 export const shippingPolicy = {
