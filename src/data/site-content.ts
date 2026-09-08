@@ -87,7 +87,7 @@ export const brandStoryDraft = {
   ],
 };
 
-/** 購物車運費資訊（18）— 實際金額待確認 */
+/** 我的選物清單運費資訊（18）— 實際金額待確認 */
 export const shippingPolicy = {
   fee: 120,
   freeThreshold: 1500,
