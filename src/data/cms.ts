@@ -223,12 +223,18 @@ export const defaultCms: CmsPage[] = [
         title: "區塊一：開場",
         where: "頁面最上方左文右圖",
         fields: [
-          { key: "title", label: "主標語", type: "text", value: "為品牌訂製一份會被記住的禮" },
+          {
+            key: "title",
+            label: "主標語",
+            type: "text",
+            value: "把企業心意，交給一枚會說話的籤餅",
+          },
           {
             key: "subtitle",
             label: "說明文字",
             type: "longtext",
-            value: "從餅身圖樣、籤文到封套，一站式完成企業送禮的每個細節。",
+            value:
+              "從餅身圖樣、籤文到專屬封套，我們與藝術家一起，為企業打造能被記住的贈禮。",
           },
           img("image", "開場圖片", "4:3 或 1:1"),
         ],
