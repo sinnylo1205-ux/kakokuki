@@ -4,14 +4,24 @@ import { Award, ShieldCheck, HandHeart } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
+import {
+  corporateProducts,
+  customCopy,
+  navCopy,
+  showCustomHero,
+} from "@/data/site-content";
 
 export const Route = createFileRoute("/custom")({
   head: () => ({
     meta: [
-      { title: "企業客製化專區｜KAKO KUKI" },
-      { name: "description", content: "KAKO KUKI 企業禮贈品客製化服務，含封套客製、籤詩印製與大量訂製，並提供線上訂購詢價問卷。" },
-      { property: "og:title", content: "企業客製化專區｜KAKO KUKI" },
-      { property: "og:description", content: "企業禮贈品客製化服務，封套客製、籤詩印製與大量訂製。" },
+      { title: `${navCopy.custom.zh}｜KAKO KUKI` },
+      {
+        name: "description",
+        content:
+          "KAKO KUKI 企業合作：印製籤餅、籤文與企業專屬封套客製服務，並提供線上訂購與詢價問卷。",
+      },
+      { property: "og:title", content: `${navCopy.custom.zh}｜KAKO KUKI` },
+      { property: "og:description", content: "印製籤餅、籤文與企業專屬封套客製服務。" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -19,46 +29,62 @@ export const Route = createFileRoute("/custom")({
   component: CustomPage,
 });
 
+/**
+ * 三張理由卡：文案與證明資料待確認，不沿用第一版未經核准的說法。
+ */
 const reasons = [
   {
     icon: Award,
-    title: "國際風味肯定",
-    body: "經專業評審肯定的風味，讓企業送出的不只是禮盒，更是一份被認可的美味。",
+    title: "風味的來歷（文案待確認）",
+    body: "此區將說明籤餅風味的來歷與製作方式，正式文案與可公開的佐證資料待補。",
   },
   {
     icon: ShieldCheck,
-    title: "食品安全認證",
-    body: "由通過食品安全管理認證的工廠製作，從原料、製程到環境與品質控管嚴格把關。",
+    title: "食材單純（文案待確認）",
+    body: "此區將說明選用的食材與配方原則，正式文案與可公開的佐證資料待補。",
   },
   {
     icon: HandHeart,
-    title: "品質責任保障",
-    body: "全產品皆投保產品責任險，為商品食用與消費安全提供更完整的保障。",
+    title: "品質與責任（文案待確認）",
+    body: "此區將說明品質控管與消費保障方式，正式文案與可公開的佐證資料待補。",
   },
 ];
 
+/** 客製服務順序：印製籤餅 → 籤文 → 企業專屬封套 */
 const nodes = [
+  {
+    eyebrow: "專屬於你的品牌設計",
+    title: customCopy.printedService.zh,
+    body: "可將指定圖樣、企業識別或藝術家作品呈現於籤餅餅身表面，讓品牌印象與味蕾同步綻放。",
+  },
+  {
+    eyebrow: "為佳節增添溫度的心意",
+    title: "籤文",
+    body: "可加入企業祝福語、品牌訊息或專屬署名，讓贈禮語氣更細膩、更有溫度。",
+  },
   {
     eyebrow: "專屬企業形象包裝",
     title: "企業專屬封套",
-    body: "提供企業專屬或聯名授權封套，並可依指定角色客製，打造更具收藏感與話題性的節慶外觀。",
-
-  },
-  {
-    eyebrow: "為佳節增添溫度的心意籤詩",
-    title: "客製化籤詩卡",
-    body: "可加入企業祝福語、品牌訊息或專屬署名，讓贈禮語氣更細膩、更有溫度。",
-
-  },
-  {
-    eyebrow: "專屬於你的品牌設計",
-    title: "印製籤餅服務",
-    body: "可將指定圖樣、企業識別或節慶主題印製於外袋上，讓品牌印象與味蕾同步綻放。",
-
+    body: "提供企業專屬或聯名授權封套，並可依指定角色客製，打造更具收藏感與話題性的外觀。",
   },
 ];
 
-const giftCategories = ["年節送禮", "中秋送禮", "聖誕送禮", "開幕誌慶", "婚禮小物", "活動贈品"];
+/** 代表性合作案例（上方區塊）— 圖文與故事待補 */
+const caseStudies = [
+  { name: "藝術合作案例一（待補）", story: "合作背景、設計概念與成品應用故事待補。" },
+  { name: "精品合作案例二（待補）", story: "合作背景、設計概念與成品應用故事待補。" },
+  { name: "品牌合作案例三（待補）", story: "合作背景、設計概念與成品應用故事待補。" },
+];
+
+/** 送禮類別選項重新設計，待定稿 */
+const giftCategories = [
+  "企業贈禮（客戶／夥伴）",
+  "內部員工與團隊",
+  "活動與展會",
+  "品牌聯名企劃",
+  "婚禮與人生大事",
+  "還在構思，想聽建議",
+];
 
 function CookieNode() {
   return (
@@ -93,32 +119,38 @@ const inputClass =
 
 function CustomPage() {
   const [step, setStep] = useState<1 | 2>(1);
+  const [productId, setProductId] = useState("");
+  const selected = corporateProducts.find((p) => p.id === productId);
 
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
       <main className="mx-auto max-w-[1400px] px-6 pb-24 md:px-10">
-        {/* 區塊一：Hero */}
-        <section className="grid items-center gap-12 pt-14 md:grid-cols-2 md:pt-20">
-          <div>
-            <h1 className="text-3xl leading-relaxed tracking-[0.16em] md:text-4xl">
-              把企業心意，
-              <br />
-              包進一則好運籤詩
-            </h1>
-            <h2 className="mt-8 text-sm leading-loose tracking-[0.12em] text-muted-foreground">
-              從封套、籤詩到外袋印製，KAKO KUKI 為企業打造專屬的節慶禮贈方案，
-              讓每一份贈禮都替品牌說話。
-            </h2>
-            <a
-              href="#enquiry"
-              className="mt-10 inline-block border border-gold px-10 py-4 text-sm tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              填寫訂購 / 詢價問卷
-            </a>
-          </div>
-          <Placeholder label="企業客製化主視覺" className="aspect-[4/3] w-full" />
-        </section>
+        {/* 區塊一：開場（showCustomHero=false 即為整段刪除的版本） */}
+        {showCustomHero ? (
+          <section className="grid items-center gap-12 pt-14 md:grid-cols-2 md:pt-20">
+            <div>
+              <h1 className="text-3xl leading-relaxed tracking-[0.16em] md:text-4xl">
+                把企業心意，
+                <br />
+                交給一枚會說話的籤餅
+              </h1>
+              <h2 className="mt-8 text-sm leading-loose tracking-[0.12em] text-muted-foreground">
+                從餅身圖樣、籤文到專屬封套，我們與藝術家一起，
+                為企業打造能被記住的贈禮。（正式文案待確認）
+              </h2>
+              <a
+                href="#enquiry"
+                className="mt-10 inline-block border border-gold px-10 py-4 text-sm tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                {customCopy.formCta.zh}
+              </a>
+            </div>
+            <Placeholder label="企業合作主視覺" className="aspect-[4/3] w-full" />
+          </section>
+        ) : (
+          <div className="pt-14 md:pt-20" />
+        )}
 
         {/* 區塊二：選擇我們的理由 */}
         <section className="mt-24 border-t border-gold-soft pt-16">
@@ -144,12 +176,21 @@ function CustomPage() {
           </div>
         </section>
 
-        {/* 區塊三：企業聯名合作 */}
+        {/* 區塊三：代表性合作案例（與底部完整名單分工，不重複） */}
         <section className="mt-24 border-t border-gold-soft pt-16">
-          <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">企業聯名合作</h2>
-          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3">
-            {["聯名一", "聯名二", "聯名三"].map((n) => (
-              <Placeholder key={n} label={n} className="aspect-square" />
+          <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">代表性合作案例</h2>
+          <p className="mt-4 text-center text-xs tracking-[0.2em] text-muted-foreground">
+            藝 術 與 精 品 合 作 ・ 情 境 與 故 事
+          </p>
+          <div className="mt-12 grid gap-10 md:grid-cols-3">
+            {caseStudies.map((c) => (
+              <article key={c.name}>
+                <Placeholder label="合作情境圖" className="aspect-square" />
+                <h3 className="mt-5 text-lg tracking-[0.14em]">{c.name}</h3>
+                <p className="mt-3 text-sm leading-loose tracking-[0.06em] text-muted-foreground">
+                  {c.story}
+                </p>
+              </article>
             ))}
           </div>
         </section>
@@ -171,7 +212,6 @@ function CustomPage() {
                       <p className="mt-3 text-sm leading-loose tracking-[0.06em] text-muted-foreground">
                         {n.body}
                       </p>
-
                     </div>
                   </li>
                 ))}
@@ -182,7 +222,9 @@ function CustomPage() {
 
         {/* 區塊五：訂購 / 詢價問卷 */}
         <section id="enquiry" className="mt-24 border-t border-gold-soft pt-16">
-          <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">訂購 / 詢價問卷</h2>
+          <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">
+            {customCopy.formTitle.zh}
+          </h2>
           <p className="mt-4 text-center text-xs tracking-[0.2em] text-muted-foreground">
             {step === 1 ? "第一步 ・ 需求內容" : "第二步 ・ 訂購人資訊"}
           </p>
@@ -194,10 +236,10 @@ function CustomPage() {
             {step === 1 ? (
               <div className="grid gap-8 md:grid-cols-2">
                 <div className="md:col-span-2">
-                  <Field label="送禮類別" required>
+                  <Field label="這份禮物想送給誰" required>
                     <select className={inputClass} defaultValue="" required>
                       <option value="" disabled>
-                        請選擇以下選項
+                        請選擇最接近的情況
                       </option>
                       {giftCategories.map((c) => (
                         <option key={c} value={c}>
@@ -207,11 +249,28 @@ function CustomPage() {
                     </select>
                   </Field>
                 </div>
-                <Field label="購買產品">
-                  <input className={inputClass} placeholder="例：聖誕典藏・六入禮盒" />
+                <Field label="想選擇的產品">
+                  <select
+                    className={inputClass}
+                    value={productId}
+                    onChange={(e) => setProductId(e.target.value)}
+                  >
+                    <option value="">請選擇產品</option>
+                    {corporateProducts.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.label}
+                      </option>
+                    ))}
+                  </select>
                 </Field>
                 <Field label="購買數量">
-                  <input className={inputClass} type="number" min={1} placeholder="例：100" />
+                  <input
+                    className={inputClass}
+                    type="number"
+                    min={selected?.moq ?? 1}
+                    step={1}
+                    placeholder={selected ? `最低訂量 ${selected.moq}（待確認）` : "請先選擇產品"}
+                  />
                 </Field>
                 <Field label="禮品預算" required>
                   <input className={inputClass} placeholder="例：NT$50,000" required />
@@ -260,7 +319,7 @@ function CustomPage() {
                     type="submit"
                     className="border border-gold px-10 py-4 text-sm tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                   >
-                    送出問卷
+                    {customCopy.formSubmit.zh}
                   </button>
                 </div>
               </div>
@@ -268,9 +327,11 @@ function CustomPage() {
           </form>
         </section>
 
-        {/* 區塊六：合作企業 */}
+        {/* 區塊六：完整合作名單 */}
         <section className="mt-24 border-t border-gold-soft pt-16">
-          <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">合作企業</h2>
+          <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">
+            {customCopy.logoWallTitle.zh}
+          </h2>
           <div className="mt-12 grid grid-cols-3 gap-6 md:grid-cols-5 lg:grid-cols-6">
             {Array.from({ length: 18 }, (_, i) => (
               <Placeholder key={i} label={`LOGO ${i + 1}`} className="aspect-[3/2]" />

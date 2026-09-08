@@ -240,9 +240,20 @@
     border-color: var(--color-border);
   }
 
+  /* 紙張／餅乾紋理：極淡顆粒，不影響文字閱讀 */
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(currentColor 0.5px, transparent 0.5px);
+    background-size: 16px 16px;
+    opacity: 0.035;
   }
 }
 

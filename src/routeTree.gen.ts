@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ArtRouteImport } from './routes/art'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CollectionRouteImport } from './routes/collection'
@@ -22,6 +23,7 @@ import { Route as MembershipRightsRouteImport } from './routes/membership-rights
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminContentRouteImport } from './routes/admin.content'
 import { Route as AdminInquiriesRouteImport } from './routes/admin.inquiries'
 import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
@@ -44,6 +46,11 @@ const AccountRoute = AccountRouteImport.update({
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtRoute = ArtRouteImport.update({
+  id: '/art',
+  path: '/art',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartRoute = CartRouteImport.update({
@@ -91,6 +98,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminContentRoute = AdminContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminInquiriesRoute = AdminInquiriesRouteImport.update({
   id: '/inquiries',
   path: '/inquiries',
@@ -112,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/admin': typeof AdminRouteWithChildren
+  '/art': typeof ArtRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/collection': typeof CollectionRoute
@@ -120,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/admin/content': typeof AdminContentRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -129,6 +143,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
+  '/art': typeof ArtRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/collection': typeof CollectionRoute
@@ -137,6 +152,7 @@ export interface FileRoutesByTo {
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/admin/content': typeof AdminContentRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -148,6 +164,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/admin': typeof AdminRouteWithChildren
+  '/art': typeof ArtRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/collection': typeof CollectionRoute
@@ -156,6 +173,7 @@ export interface FileRoutesById {
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/admin/content': typeof AdminContentRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -168,6 +186,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/account'
     | '/admin'
+    | '/art'
     | '/cart'
     | '/checkout'
     | '/collection'
@@ -176,6 +195,7 @@ export interface FileRouteTypes {
     | '/membership-rights'
     | '/privacy'
     | '/rewards'
+    | '/admin/content'
     | '/admin/inquiries'
     | '/admin/orders'
     | '/product/$slug'
@@ -185,6 +205,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/account'
+    | '/art'
     | '/cart'
     | '/checkout'
     | '/collection'
@@ -193,6 +214,7 @@ export interface FileRouteTypes {
     | '/membership-rights'
     | '/privacy'
     | '/rewards'
+    | '/admin/content'
     | '/admin/inquiries'
     | '/admin/orders'
     | '/product/$slug'
@@ -203,6 +225,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/account'
     | '/admin'
+    | '/art'
     | '/cart'
     | '/checkout'
     | '/collection'
@@ -211,6 +234,7 @@ export interface FileRouteTypes {
     | '/membership-rights'
     | '/privacy'
     | '/rewards'
+    | '/admin/content'
     | '/admin/inquiries'
     | '/admin/orders'
     | '/product/$slug'
@@ -222,6 +246,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AccountRoute: typeof AccountRoute
   AdminRoute: typeof AdminRouteWithChildren
+  ArtRoute: typeof ArtRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   CollectionRoute: typeof CollectionRoute
@@ -261,6 +286,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/art': {
+      id: '/art'
+      path: '/art'
+      fullPath: '/art'
+      preLoaderRoute: typeof ArtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cart': {
@@ -326,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/content': {
+      id: '/admin/content'
+      path: '/content'
+      fullPath: '/admin/content'
+      preLoaderRoute: typeof AdminContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/inquiries': {
       id: '/admin/inquiries'
       path: '/inquiries'
@@ -351,12 +390,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminContentRoute: typeof AdminContentRoute
   AdminInquiriesRoute: typeof AdminInquiriesRoute
   AdminOrdersRoute: typeof AdminOrdersRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminContentRoute: AdminContentRoute,
   AdminInquiriesRoute: AdminInquiriesRoute,
   AdminOrdersRoute: AdminOrdersRoute,
   AdminIndexRoute: AdminIndexRoute,
@@ -369,6 +410,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AccountRoute: AccountRoute,
   AdminRoute: AdminRouteWithChildren,
+  ArtRoute: ArtRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   CollectionRoute: CollectionRoute,

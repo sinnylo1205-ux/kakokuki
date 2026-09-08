@@ -47,8 +47,12 @@ function Index() {
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* 區塊一：HERO */}
-      <Placeholder label="HERO" className="h-[52vh] w-full md:h-[64vh]" />
+      {/* 區塊一：HERO — 16:9 大幅滿版主圖 */}
+      <Placeholder
+        label="HERO"
+        sublabel="16:9 滿版主圖"
+        className="aspect-[4/3] w-full sm:aspect-video"
+      />
 
       <main className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* 區塊二 */}
