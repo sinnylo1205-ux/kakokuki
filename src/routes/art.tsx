@@ -7,13 +7,13 @@ import { useCmsPage } from "@/lib/cms";
 export const Route = createFileRoute("/art")({
   head: () => ({
     meta: [
-      { title: `${t("head.title")}｜KAKO KUKI 藝術專區` },
+      { title: "以藝向善｜KAKO KUKI 藝術專區" },
       {
         name: "description",
         content:
           "KAKO KUKI 藝術專區：合作藝術家介紹、創作經歷與作品，以及籤餅與藝術結合的合作故事。",
       },
-      { property: "og:title", content: `${t("head.title")}｜KAKO KUKI` },
+      { property: "og:title", content: "以藝向善｜KAKO KUKI" },
       { property: "og:description", content: "合作藝術家介紹、作品與合作故事。" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -42,7 +42,7 @@ function ArtPage() {
             {t("head.title")}
           </h1>
           <p className="mx-auto mt-8 max-w-[680px] text-center text-sm leading-loose tracking-[0.1em] text-muted-foreground">
-{t("head.intro")}
+            {t("head.intro")}
           </p>
         </section>
 
