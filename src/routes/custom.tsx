@@ -134,13 +134,10 @@ function CustomPage() {
           <section className="grid items-center gap-12 pt-14 md:grid-cols-2 md:pt-20">
             <div>
               <h1 className="text-3xl leading-relaxed tracking-[0.16em] md:text-4xl">
-                把企業心意，
-                <br />
-                交給一枚會說話的籤餅
+                {t("hero.title")}
               </h1>
               <h2 className="mt-8 text-sm leading-loose tracking-[0.12em] text-muted-foreground">
-                從餅身圖樣、籤文到專屬封套，我們與藝術家一起，
-                為企業打造能被記住的贈禮。（正式文案待確認）
+                {t("hero.subtitle")}
               </h2>
               <a
                 href="#enquiry"
