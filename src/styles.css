@@ -244,13 +244,6 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    background-image:
-      radial-gradient(currentColor 0.5px, transparent 0.5px),
-      radial-gradient(currentColor 0.5px, transparent 0.5px);
-    background-size: 14px 14px, 22px 22px;
-    background-position: 0 0, 7px 11px;
-    background-blend-mode: multiply;
-    opacity: 1;
   }
   body::before {
     content: "";
