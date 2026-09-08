@@ -37,7 +37,7 @@ export const navCopy = {
   },
   cart: {
     id: "nav.cart",
-    label: "購物車頁面名稱（待定稿）",
+    label: "我的選物清單頁面名稱（待定稿）",
     zh: "我的選物清單",
     pending: true,
   },
@@ -87,7 +87,7 @@ export const brandStoryDraft = {
   ],
 };
 
-/** 購物車運費資訊（18）— 實際金額待確認 */
+/** 我的選物清單運費資訊（18）— 實際金額待確認 */
 export const shippingPolicy = {
   fee: 120,
   freeThreshold: 1500,

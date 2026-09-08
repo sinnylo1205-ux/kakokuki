@@ -104,7 +104,7 @@ function ProductPage() {
                 }}
                 className="mt-8 h-14 w-full bg-primary text-sm tracking-[0.4em] text-primary-foreground transition-opacity hover:opacity-85"
               >
-                {added ? "已加入，前往購物車頁面" : "加入購物袋"}
+                {added ? "已加入，前往我的選物清單頁面" : "加入購物袋"}
               </button>
               <p className="mt-3 text-xs text-muted-foreground">
                 線上結帳功能即將開放，目前僅供選購預覽。

@@ -78,11 +78,11 @@ function RewardsPage() {
                   onClick={() => setAdded((prev) => [...prev, r.id])}
                   className="mt-6 border border-gold px-8 py-3.5 text-sm tracking-[0.25em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-primary"
                 >
-                  {isAdded ? "已加入購物車" : affordable ? "點數換購" : "點數不足"}
+                  {isAdded ? "已加入我的選物清單" : affordable ? "點數換購" : "點數不足"}
                 </button>
                 {isAdded ? (
                   <p className="mt-3 text-center text-xs tracking-[0.15em] text-muted-foreground">
-                    已加入購物車，
+                    已加入我的選物清單，
                     <Link to="/cart" className="border-b border-gold text-primary">
                       前往結帳
                     </Link>

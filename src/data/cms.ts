@@ -65,7 +65,7 @@ export const defaultCms: CmsPage[] = [
           { key: "linkCollection", label: "選單二：商品總覽", type: "text", value: "探索我們的籤餅" },
           { key: "linkArt", label: "選單三：藝術專區", type: "text", value: "以藝向善" },
           { key: "linkCustom", label: "選單四：企業合作", type: "text", value: "企業合作" },
-          { key: "cartLabel", label: "購物車名稱", type: "text", value: "我的選物清單" },
+          { key: "cartLabel", label: "我的選物清單名稱", type: "text", value: "我的選物清單" },
         ],
       },
       {
