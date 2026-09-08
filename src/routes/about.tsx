@@ -30,12 +30,13 @@ function AboutPage() {
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-medium tracking-[0.18em] sm:text-5xl">品牌故事</h1>
           <p className="mt-8 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
-            KAKO KUKI 為你生活每一天增添儀式感。我們把祝福寫進籤詩，藏進一塊剛好一口的幸運籤餅裡，
-            讓拆開的那一秒成為整天最期待的事。
+            KAKO KUKI 相信一塊餅可以承載一件作品。我們把餅身當成畫布，邀請插畫、水墨、立體造型的創作者，
+            把他們的語言印在最日常的甜點上；每一次合作都以正式授權與分潤進行，讓創作被使用、也被回饋。
           </p>
           <p className="mt-5 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
-            我們將以幸運籤餅作為時尚、潮流、設計的載體，拓展幸運籤餅的創作邊界，
-            你可以在這裡找到最有質感、口味最佳的幸運籤餅。
+            也因為這樣的做法，我們常成為跨國品牌在台灣尋找禮品時的選擇，他們要的不只是好吃，
+            而是一份能說出在地創作故事、細節與品質都有著我們的把控。從圖樣授權、籤文撰寫到封套設計，
+            我們把每個環節做成可被驗證的流程，讓一份小小的贈禮，也能代表品牌的態度。
           </p>
         </div>
 
