@@ -80,7 +80,7 @@ function CartPage() {
                   className="h-4 w-4 accent-primary"
                 />
               </label>
-              <span>商品縮圖</span>
+              <span />
               <span>商品名稱</span>
               <span>單價</span>
               <span>數量</span>
@@ -148,16 +148,32 @@ function CartPage() {
               ))}
             </ul>
 
-            <div className="mt-10 flex flex-col items-end gap-5">
+            <div className="mt-10 flex flex-col items-end gap-4">
               <p className="text-sm tracking-[0.15em] text-muted-foreground">
                 已勾選商品小計　
                 <span className="text-lg tracking-[0.12em] text-foreground">
                   {formatPrice(total)}
                 </span>
               </p>
+              <p className="text-sm tracking-[0.15em] text-muted-foreground">
+                運費　
+                <span className="text-foreground">
+                  {freeShipping ? "免運" : formatPrice(shippingPolicy.fee)}
+                </span>
+              </p>
+              <p className="text-base tracking-[0.15em]">
+                合計　{formatPrice(total + (freeShipping ? 0 : shippingPolicy.fee))}
+              </p>
+              <p className="text-xs leading-relaxed tracking-[0.12em] text-muted-foreground">
+                單筆滿 {formatPrice(shippingPolicy.freeThreshold)} 免運
+                {shippingPolicy.pending ? "（運費與免運門檻為暫定值，待確認）" : null}
+                {freeShipping
+                  ? null
+                  : `　再購買 ${formatPrice(shippingPolicy.freeThreshold - total)} 即可免運`}
+              </p>
               <Link
                 to="/checkout"
-                className="border border-gold px-10 py-4 text-sm tracking-[0.25em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="mt-2 border border-gold px-10 py-4 text-sm tracking-[0.25em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 前往結帳
               </Link>
