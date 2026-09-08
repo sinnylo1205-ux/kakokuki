@@ -22,7 +22,15 @@ export function CmsImage({
   const { get } = useCms();
   const src = get(id);
 
-  if (!src) return <Placeholder label={label} sublabel={sublabel} className={className} />;
+  if (!src) {
+    return (
+      <Placeholder
+        label={label}
+        {...(sublabel ? { sublabel } : {})}
+        {...(className ? { className } : {})}
+      />
+    );
+  }
 
   return (
     <img
