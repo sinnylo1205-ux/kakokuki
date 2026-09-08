@@ -227,7 +227,7 @@ function CustomPage() {
         {/* 區塊五：訂購 / 詢價問卷 */}
         <section id="enquiry" className="mt-24 border-t border-gold-soft pt-16">
           <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">
-            {customCopy.formTitle.zh}
+            {t("form.title")}
           </h2>
           <p className="mt-4 text-center text-xs tracking-[0.2em] text-muted-foreground">
             {step === 1 ? "第一步 ・ 需求內容" : "第二步 ・ 訂購人資訊"}
@@ -323,7 +323,7 @@ function CustomPage() {
                     type="submit"
                     className="border border-gold px-10 py-4 text-sm tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                   >
-                    {customCopy.formSubmit.zh}
+                    {t("form.submit")}
                   </button>
                 </div>
               </div>
@@ -334,7 +334,7 @@ function CustomPage() {
         {/* 區塊六：完整合作名單 */}
         <section className="mt-24 border-t border-gold-soft pt-16">
           <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">
-            {customCopy.logoWallTitle.zh}
+            {t("logoWall.title")}
           </h2>
           <div className="mt-12 grid grid-cols-3 gap-6 md:grid-cols-5 lg:grid-cols-6">
             {Array.from({ length: 18 }, (_, i) => (
