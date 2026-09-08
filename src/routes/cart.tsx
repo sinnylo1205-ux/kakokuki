@@ -53,12 +53,14 @@ function CartPage() {
     [items],
   );
   const allChecked = items.length > 0 && items.every((i) => i.checked);
+  const freeShipping = total >= shippingPolicy.freeThreshold;
 
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
       <main className="mx-auto max-w-[1400px] px-6 pt-12 pb-16 md:px-10">
-        <h1 className="text-center text-2xl tracking-[0.22em] md:text-3xl">購物車</h1>
+        <h1 className="text-center text-2xl tracking-[0.22em] md:text-3xl">{navCopy.cart.zh}</h1>
+
 
         {items.length === 0 ? (
           <p className="mt-16 text-center text-sm tracking-[0.15em] text-muted-foreground">
