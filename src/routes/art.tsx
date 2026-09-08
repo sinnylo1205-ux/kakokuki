@@ -2,18 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
-import { navCopy } from "@/data/site-content";
+import { useCmsPage } from "@/lib/cms";
 
 export const Route = createFileRoute("/art")({
   head: () => ({
     meta: [
-      { title: `${navCopy.art.zh}｜KAKO KUKI 藝術專區` },
+      { title: "以藝向善｜KAKO KUKI 藝術專區" },
       {
         name: "description",
         content:
           "KAKO KUKI 藝術專區：合作藝術家介紹、創作經歷與作品，以及籤餅與藝術結合的合作故事。",
       },
-      { property: "og:title", content: `${navCopy.art.zh}｜KAKO KUKI` },
+      { property: "og:title", content: "以藝向善｜KAKO KUKI" },
       { property: "og:description", content: "合作藝術家介紹、作品與合作故事。" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -29,6 +29,7 @@ const artists = [
 ];
 
 function ArtPage() {
+  const t = useCmsPage("art");
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -38,11 +39,10 @@ function ArtPage() {
             名 稱 待 定 稿
           </p>
           <h1 className="mt-5 text-center text-3xl tracking-[0.16em] md:text-4xl">
-            {navCopy.art.zh}
+            {t("head.title")}
           </h1>
           <p className="mx-auto mt-8 max-w-[680px] text-center text-sm leading-loose tracking-[0.1em] text-muted-foreground">
-            每一枚籤餅都是一個作品的載體。這裡介紹與我們一起創作的藝術家，
-            以及作品如何走進日常的贈禮之中。（正式文案待補）
+            {t("head.intro")}
           </p>
         </section>
 

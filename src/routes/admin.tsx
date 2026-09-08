@@ -20,7 +20,7 @@ const navItems = [
   { label: "儀表板", to: "/admin", icon: LayoutGrid, exact: true },
   { label: "訂單管理", to: "/admin/orders", icon: ShoppingCart, exact: false },
   { label: "詢價與回覆", to: "/admin/inquiries", icon: FileText, exact: false },
-  { label: "網站文案", to: "/admin/content", icon: Type, exact: false },
+  { label: "網站內容", to: "/admin/content", icon: Type, exact: false },
 ];
 
 function AdminLayout() {

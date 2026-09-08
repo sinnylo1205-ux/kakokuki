@@ -3,9 +3,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { Placeholder } from "@/components/Placeholder";
+import { CmsImage } from "@/components/CmsImage";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Button } from "@/components/ui/button";
+import { useCmsPage } from "@/lib/cms";
 import cookie1 from "@/assets/fortune-cookie-1.png.asset.json";
 import cookie2 from "@/assets/fortune-cookie-2.png.asset.json";
 import cookie3 from "@/assets/fortune-cookie-3.png.asset.json";
@@ -30,8 +31,16 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const t = useCmsPage("home");
   const collaborationTrackRef = useRef<HTMLDivElement>(null);
-  const cookies = [cookie1.url, cookie2.url, cookie3.url, cookie4.url, cookie5.url];
+  const defaultCookies = [cookie1.url, cookie2.url, cookie3.url, cookie4.url, cookie5.url];
+  const cookies = defaultCookies.map(
+    (fallback, index) => t(`section4.cookie${index + 1}`) || fallback,
+  );
+  const collaborations = Array.from({ length: 6 }, (_, index) => ({
+    title: t(`section3.item${index + 1}Title`),
+    imageId: `home.section3.item${index + 1}Image`,
+  }));
 
   const scrollCollaborations = () => {
     const track = collaborationTrackRef.current;
@@ -48,9 +57,10 @@ function Index() {
       <SiteNav />
 
       {/* 區塊一：HERO — 16:9 大幅滿版主圖 */}
-      <Placeholder
-        label="HERO"
-        sublabel="16:9 滿版主圖"
+      <CmsImage
+        id="home.hero.image"
+        label={t("hero.label")}
+        sublabel={t("hero.sublabel")}
         className="aspect-[4/3] w-full sm:aspect-video"
       />
 
@@ -59,10 +69,20 @@ function Index() {
         <section className="border-t border-border py-10 md:py-14">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <Link to="/collection" className="block">
-              <Placeholder label="經典款" sublabel="方形商品圖" className="aspect-square" />
+              <CmsImage
+                id="home.section2.card1Image"
+                label={t("section2.card1Title")}
+                sublabel="方形商品圖"
+                className="aspect-square"
+              />
             </Link>
             <Link to="/collection" className="block">
-              <Placeholder label="聖誕款" sublabel="方形商品圖" className="aspect-square" />
+              <CmsImage
+                id="home.section2.card2Image"
+                label={t("section2.card2Title")}
+                sublabel="方形商品圖"
+                className="aspect-square"
+              />
             </Link>
           </div>
         </section>
@@ -73,13 +93,13 @@ function Index() {
             ref={collaborationTrackRef}
             className="flex snap-x snap-mandatory gap-6 overflow-x-auto pr-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {Array.from({ length: 6 }, (_, index) => (
+            {collaborations.map((item, index) => (
               <Link
                 key={index}
                 to="/collection"
                 className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31%]"
               >
-                <Placeholder label="IP／企業聯名" className="aspect-[3/4]" />
+                <CmsImage id={item.imageId} label={item.title} className="aspect-[3/4]" />
               </Link>
             ))}
           </div>

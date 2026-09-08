@@ -4,6 +4,8 @@ import { Award, ShieldCheck, HandHeart } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
+import { CmsImage } from "@/components/CmsImage";
+import { useCmsPage } from "@/lib/cms";
 import {
   corporateProducts,
   customCopy,
@@ -118,6 +120,7 @@ const inputClass =
   "w-full border border-border bg-background px-4 py-3 text-sm tracking-[0.08em] outline-none transition-colors focus:border-gold";
 
 function CustomPage() {
+  const t = useCmsPage("custom");
   const [step, setStep] = useState<1 | 2>(1);
   const [productId, setProductId] = useState("");
   const selected = corporateProducts.find((p) => p.id === productId);
@@ -131,13 +134,10 @@ function CustomPage() {
           <section className="grid items-center gap-12 pt-14 md:grid-cols-2 md:pt-20">
             <div>
               <h1 className="text-3xl leading-relaxed tracking-[0.16em] md:text-4xl">
-                把企業心意，
-                <br />
-                交給一枚會說話的籤餅
+                {t("hero.title")}
               </h1>
               <h2 className="mt-8 text-sm leading-loose tracking-[0.12em] text-muted-foreground">
-                從餅身圖樣、籤文到專屬封套，我們與藝術家一起，
-                為企業打造能被記住的贈禮。（正式文案待確認）
+                {t("hero.subtitle")}
               </h2>
               <a
                 href="#enquiry"
@@ -146,7 +146,11 @@ function CustomPage() {
                 {customCopy.formCta.zh}
               </a>
             </div>
-            <Placeholder label="企業合作主視覺" className="aspect-[4/3] w-full" />
+            <CmsImage
+              id="custom.hero.image"
+              label="企業合作主視覺"
+              className="aspect-[4/3] w-full"
+            />
           </section>
         ) : (
           <div className="pt-14 md:pt-20" />
@@ -223,7 +227,7 @@ function CustomPage() {
         {/* 區塊五：訂購 / 詢價問卷 */}
         <section id="enquiry" className="mt-24 border-t border-gold-soft pt-16">
           <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">
-            {customCopy.formTitle.zh}
+            {t("form.title")}
           </h2>
           <p className="mt-4 text-center text-xs tracking-[0.2em] text-muted-foreground">
             {step === 1 ? "第一步 ・ 需求內容" : "第二步 ・ 訂購人資訊"}
@@ -319,7 +323,7 @@ function CustomPage() {
                     type="submit"
                     className="border border-gold px-10 py-4 text-sm tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                   >
-                    {customCopy.formSubmit.zh}
+                    {t("form.submit")}
                   </button>
                 </div>
               </div>
@@ -330,7 +334,7 @@ function CustomPage() {
         {/* 區塊六：完整合作名單 */}
         <section className="mt-24 border-t border-gold-soft pt-16">
           <h2 className="text-center text-2xl tracking-[0.16em] md:text-3xl">
-            {customCopy.logoWallTitle.zh}
+            {t("logoWall.title")}
           </h2>
           <div className="mt-12 grid grid-cols-3 gap-6 md:grid-cols-5 lg:grid-cols-6">
             {Array.from({ length: 18 }, (_, i) => (

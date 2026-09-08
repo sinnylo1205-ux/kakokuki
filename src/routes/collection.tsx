@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProductCarousel } from "@/components/ProductCarousel";
 import { products } from "@/data/products";
+import { useCmsPage } from "@/lib/cms";
 
 export const Route = createFileRoute("/collection")({
   head: () => ({
@@ -19,21 +20,22 @@ export const Route = createFileRoute("/collection")({
 });
 
 function CollectionPage() {
+  const t = useCmsPage("collection");
+
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
       <main className="mx-auto max-w-[1400px] px-6 pt-12 pb-16 md:px-10">
-        <h1 className="text-center text-2xl tracking-[0.22em] md:text-3xl">幸運籤餅</h1>
+        <h1 className="text-center text-2xl tracking-[0.22em] md:text-3xl">{t("head.title")}</h1>
         <div className="mt-14">
-          <ProductCarousel title="經典款" products={products} namePrefix="classic" />
+          <ProductCarousel title={t("rows.row1")} products={products} namePrefix="classic" />
         </div>
         <div className="mt-20">
-          <ProductCarousel title="節慶新上市" products={products} variant="box" />
+          <ProductCarousel title={t("rows.row2")} products={products} variant="box" />
         </div>
         <div className="mt-20">
-          <ProductCarousel title="IP 聯名款" products={products} namePrefix="ip" />
+          <ProductCarousel title={t("rows.row3")} products={products} namePrefix="ip" />
         </div>
-
       </main>
       <SiteFooter />
     </div>
