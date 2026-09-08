@@ -10,9 +10,9 @@ import { navCopy, shippingPolicy } from "@/data/site-content";
 export const Route = createFileRoute("/cart")({
   head: () => ({
     meta: [
-      { title: "購物車｜KAKO KUKI" },
+      { title: "我的選物清單｜KAKO KUKI" },
       { name: "description", content: "確認您的 KAKO KUKI 幸運籤餅選購項目、數量與小計金額。" },
-      { property: "og:title", content: "購物車｜KAKO KUKI" },
+      { property: "og:title", content: "我的選物清單｜KAKO KUKI" },
       { property: "og:description", content: "確認選購項目、數量與小計金額。" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -64,7 +64,7 @@ function CartPage() {
 
         {items.length === 0 ? (
           <p className="mt-16 text-center text-sm tracking-[0.15em] text-muted-foreground">
-            購物車目前是空的。
+            我的選物清單目前是空的。
             <Link to="/collection" className="ml-3 border-b border-gold text-primary">
               前往選購
             </Link>

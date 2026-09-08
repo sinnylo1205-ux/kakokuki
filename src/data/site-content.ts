@@ -37,7 +37,7 @@ export const navCopy = {
   },
   cart: {
     id: "nav.cart",
-    label: "購物車頁面名稱（待定稿）",
+    label: "我的選物清單頁面名稱（待定稿）",
     zh: "我的選物清單",
     pending: true,
   },
