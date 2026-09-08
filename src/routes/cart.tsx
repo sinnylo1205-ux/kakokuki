@@ -5,6 +5,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
 import { formatPrice } from "@/data/products";
+import { navCopy, shippingPolicy } from "@/data/site-content";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
