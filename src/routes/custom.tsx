@@ -120,6 +120,7 @@ const inputClass =
   "w-full border border-border bg-background px-4 py-3 text-sm tracking-[0.08em] outline-none transition-colors focus:border-gold";
 
 function CustomPage() {
+  const t = useCmsPage("custom");
   const [step, setStep] = useState<1 | 2>(1);
   const [productId, setProductId] = useState("");
   const selected = corporateProducts.find((p) => p.id === productId);
