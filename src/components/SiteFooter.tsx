@@ -1,14 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram } from "lucide-react";
+import { navCopy, showFooterSocial } from "@/data/site-content";
 
 const groups: { title: string; links: { label: string; to?: string; href?: string }[] }[] = [
   {
     title: "關於我們",
     links: [
-      { label: "品牌簡介", to: "/about" },
-      { label: "幸運籤餅", to: "/collection" },
-      { label: "企業客製化專區", to: "/custom" },
-      { label: "會員權益", to: "/membership-rights" },
+      { label: navCopy.about.zh, to: "/about" },
+      { label: navCopy.collection.zh, to: "/collection" },
+      { label: navCopy.art.zh, to: "/art" },
+      { label: navCopy.custom.zh, to: "/custom" },
+      { label: navCopy.membershipRights.zh, to: "/membership-rights" },
     ],
   },
   {
@@ -25,7 +27,7 @@ const groups: { title: string; links: { label: string; to?: string; href?: strin
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-card">
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-16 md:grid-cols-4 md:px-10">
+      <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-16 md:grid-cols-3 md:px-10">
         <div>
           <Link to="/" className="text-lg tracking-[0.3em]">
             KAKO KUKI
@@ -54,17 +56,20 @@ export function SiteFooter() {
           </div>
         ))}
 
-        <div>
-          <h2 className="text-sm tracking-[0.2em]">關注我們的社群</h2>
-          <div className="mt-6 flex gap-5 text-muted-foreground">
-            <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-60">
-              <Instagram className="h-5 w-5" />
-            </a>
-            <a href="#" aria-label="Facebook" className="transition-opacity hover:opacity-60">
-              <Facebook className="h-5 w-5" />
-            </a>
+        {/* 社群區暫時隱藏（待社群內容就緒後，將 showFooterSocial 改為 true） */}
+        {showFooterSocial ? (
+          <div>
+            <h2 className="text-sm tracking-[0.2em]">關注我們的社群</h2>
+            <div className="mt-6 flex gap-5 text-muted-foreground">
+              <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-60">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="#" aria-label="Facebook" className="transition-opacity hover:opacity-60">
+                <Facebook className="h-5 w-5" />
+              </a>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
 
       <div className="border-t border-border py-6">
