@@ -1,13 +1,13 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
-import { LayoutGrid, ShoppingCart, FileText } from "lucide-react";
+import { LayoutGrid, ShoppingCart, FileText, Type } from "lucide-react";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
       { title: "後台管理｜KAKO KUKI" },
-      { name: "description", content: "KAKO KUKI 後台：儀表板、訂單管理與詢價回覆。" },
+      { name: "description", content: "KAKO KUKI 後台：儀表板、訂單管理、詢價回覆與網站文案。" },
       { property: "og:title", content: "後台管理｜KAKO KUKI" },
-      { property: "og:description", content: "儀表板、訂單管理與詢價回覆。" },
+      { property: "og:description", content: "儀表板、訂單管理、詢價回覆與網站文案。" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex" },
@@ -20,6 +20,7 @@ const navItems = [
   { label: "儀表板", to: "/admin", icon: LayoutGrid, exact: true },
   { label: "訂單管理", to: "/admin/orders", icon: ShoppingCart, exact: false },
   { label: "詢價與回覆", to: "/admin/inquiries", icon: FileText, exact: false },
+  { label: "網站文案", to: "/admin/content", icon: Type, exact: false },
 ];
 
 function AdminLayout() {

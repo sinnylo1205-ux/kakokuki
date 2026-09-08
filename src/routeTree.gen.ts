@@ -23,6 +23,7 @@ import { Route as MembershipRightsRouteImport } from './routes/membership-rights
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminContentRouteImport } from './routes/admin.content'
 import { Route as AdminInquiriesRouteImport } from './routes/admin.inquiries'
 import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
@@ -97,6 +98,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminContentRoute = AdminContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminInquiriesRoute = AdminInquiriesRouteImport.update({
   id: '/inquiries',
   path: '/inquiries',
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/admin/content': typeof AdminContentRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -145,6 +152,7 @@ export interface FileRoutesByTo {
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/admin/content': typeof AdminContentRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -165,6 +173,7 @@ export interface FileRoutesById {
   '/membership-rights': typeof MembershipRightsRoute
   '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/admin/content': typeof AdminContentRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -186,6 +195,7 @@ export interface FileRouteTypes {
     | '/membership-rights'
     | '/privacy'
     | '/rewards'
+    | '/admin/content'
     | '/admin/inquiries'
     | '/admin/orders'
     | '/product/$slug'
@@ -204,6 +214,7 @@ export interface FileRouteTypes {
     | '/membership-rights'
     | '/privacy'
     | '/rewards'
+    | '/admin/content'
     | '/admin/inquiries'
     | '/admin/orders'
     | '/product/$slug'
@@ -223,6 +234,7 @@ export interface FileRouteTypes {
     | '/membership-rights'
     | '/privacy'
     | '/rewards'
+    | '/admin/content'
     | '/admin/inquiries'
     | '/admin/orders'
     | '/product/$slug'
@@ -346,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/content': {
+      id: '/admin/content'
+      path: '/content'
+      fullPath: '/admin/content'
+      preLoaderRoute: typeof AdminContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/inquiries': {
       id: '/admin/inquiries'
       path: '/inquiries'
@@ -371,12 +390,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminContentRoute: typeof AdminContentRoute
   AdminInquiriesRoute: typeof AdminInquiriesRoute
   AdminOrdersRoute: typeof AdminOrdersRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminContentRoute: AdminContentRoute,
   AdminInquiriesRoute: AdminInquiriesRoute,
   AdminOrdersRoute: AdminOrdersRoute,
   AdminIndexRoute: AdminIndexRoute,
