@@ -146,7 +146,11 @@ function CustomPage() {
                 {customCopy.formCta.zh}
               </a>
             </div>
-            <Placeholder label="企業合作主視覺" className="aspect-[4/3] w-full" />
+            <CmsImage
+              id="custom.hero.image"
+              label="企業合作主視覺"
+              className="aspect-[4/3] w-full"
+            />
           </section>
         ) : (
           <div className="pt-14 md:pt-20" />
