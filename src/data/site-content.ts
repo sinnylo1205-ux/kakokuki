@@ -107,7 +107,7 @@ export const showCustomHero = true;
 
 /** 企業合作產品選項（15）— 正式品名、規格與最低訂量待確認 */
 export const corporateProducts = [
-  { id: "12cm", label: "12 公分籤餅（品名待確認）", moq: 500, pending: true },
+  { id: "12cm", label: "12 公分籤餅（品名待確認）", moq: 3000, pending: true },
   { id: "8cm", label: "8 公分籤餅（品名待確認）", moq: 3000, pending: true },
 ];
 
