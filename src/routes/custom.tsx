@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, ShieldCheck, HandHeart } from "lucide-react";
+import { Award, ShieldCheck, HandHeart, Minus, Plus } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Placeholder } from "@/components/Placeholder";
@@ -119,10 +119,23 @@ function Field({
 const inputClass =
   "w-full border border-border bg-background px-4 py-3 text-sm tracking-[0.08em] outline-none transition-colors focus:border-gold";
 
+const MIN_QTY = 3000;
+const QTY_STEP = 500;
+
+function normalizeQty(value: string) {
+  const n = Number.parseInt(value.replace(/[^0-9]/g, ""), 10);
+  if (Number.isNaN(n)) return MIN_QTY;
+  if (n < MIN_QTY) return MIN_QTY;
+  const remainder = (n - MIN_QTY) % QTY_STEP;
+  if (remainder === 0) return n;
+  return n - remainder + (remainder >= QTY_STEP / 2 ? QTY_STEP : 0);
+}
+
 function CustomPage() {
   const t = useCmsPage("custom");
   const [step, setStep] = useState<1 | 2>(1);
   const [productId, setProductId] = useState("");
+  const [quantity, setQuantity] = useState<number>(MIN_QTY);
   const selected = corporateProducts.find((p) => p.id === productId);
 
   return (
@@ -268,13 +281,47 @@ function CustomPage() {
                   </select>
                 </Field>
                 <Field label="購買數量">
-                  <input
-                    className={inputClass}
-                    type="number"
-                    min={selected?.moq ?? 1}
-                    step={1}
-                    placeholder={selected ? `最低訂量 ${selected.moq}（待確認）` : "請先選擇產品"}
-                  />
+                  <div className="flex items-stretch border border-border bg-background">
+                    <button
+                      type="button"
+                      aria-label="減少數量"
+                      disabled={quantity <= MIN_QTY}
+                      onClick={() => setQuantity((q) => Math.max(MIN_QTY, q - QTY_STEP))}
+                      className="flex aspect-square w-11 items-center justify-center border-r border-border text-muted-foreground transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                      <Minus className="h-4 w-4" strokeWidth={1.5} />
+                    </button>
+                    <input
+                      className="min-w-0 flex-1 bg-transparent px-4 py-3 text-center text-sm tracking-[0.08em] outline-none"
+                      type="text"
+                      inputMode="numeric"
+                      value={quantity}
+                      min={MIN_QTY}
+                      step={QTY_STEP}
+                      placeholder={selected ? `最低訂量 ${selected.moq}` : "請先選擇產品"}
+                      onChange={(e) => {
+                        const raw = e.target.value.replace(/[^0-9]/g, "");
+                        if (raw === "") {
+                          setQuantity(MIN_QTY);
+                          return;
+                        }
+                        const next = normalizeQty(raw);
+                        setQuantity(next);
+                      }}
+                      onBlur={() => setQuantity((q) => normalizeQty(String(q)))}
+                    />
+                    <button
+                      type="button"
+                      aria-label="增加數量"
+                      onClick={() => setQuantity((q) => q + QTY_STEP)}
+                      className="flex aspect-square w-11 items-center justify-center border-l border-border text-muted-foreground transition-colors hover:bg-secondary"
+                    >
+                      <Plus className="h-4 w-4" strokeWidth={1.5} />
+                    </button>
+                  </div>
+                  <p className="mt-2 text-xs tracking-[0.06em] text-muted-foreground">
+                    最少 {MIN_QTY.toLocaleString("en-US")} 個，每次增減 {QTY_STEP} 個
+                  </p>
                 </Field>
                 <Field label="禮品預算" required>
                   <input className={inputClass} placeholder="例：NT$50,000" required />
