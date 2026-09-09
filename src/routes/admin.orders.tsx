@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { Calendar, ChevronDown, Plus, Trash2 } from "lucide-react";
 
 export const Route = createFileRoute("/admin/orders")({
@@ -229,9 +229,8 @@ function AdminOrders() {
           </thead>
           <tbody>
             {rows.map((o) => (
-              <>
+              <Fragment key={o.id}>
                 <tr
-                  key={o.id}
                   onClick={() => setOpenId(openId === o.id ? null : o.id)}
                   className="cursor-pointer border-b border-border align-top hover:bg-secondary/40"
                 >
@@ -291,13 +290,13 @@ function AdminOrders() {
                   </td>
                 </tr>
                 {openId === o.id ? (
-                  <tr key={`${o.id}-detail`} className="border-b border-border">
+                  <tr className="border-b border-border">
                     <td colSpan={9} className="pb-6">
                       <OrderDetail order={o} />
                     </td>
                   </tr>
                 ) : null}
-              </>
+              </Fragment>
             ))}
           </tbody>
         </table>
