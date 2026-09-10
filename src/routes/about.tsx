@@ -33,12 +33,17 @@ function AboutPage() {
       <main className="mx-auto max-w-[1400px] px-6 pt-10 pb-20 md:px-10">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-medium tracking-[0.18em] sm:text-5xl">{t("intro.title")}</h1>
-          <p className="mt-8 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
-            {t("intro.p1")}
-          </p>
-          <p className="mt-5 text-sm leading-loose tracking-[0.08em] text-muted-foreground">
-            {t("intro.p2")}
-          </p>
+          {(t("intro.p1") + "\n\n" + t("intro.p2"))
+            .split(/\n\n+/)
+            .filter(Boolean)
+            .map((para, i) => (
+              <p
+                key={i}
+                className="mt-5 text-sm leading-loose tracking-[0.08em] text-muted-foreground first:mt-8"
+              >
+                {para}
+              </p>
+            ))}
         </div>
 
         {/* 品牌影片版位：籤餅落下旋轉、表面切換不同作品 */}
