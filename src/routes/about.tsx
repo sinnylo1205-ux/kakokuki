@@ -61,15 +61,8 @@ function AboutPage() {
               <ul className="mt-6 space-y-4 text-sm leading-loose tracking-[0.06em] text-muted-foreground">
                 <li>提案一：此處 16:9 影片＋右側短文，靜音自動循環播放。</li>
                 <li>提案二：影片改為滿版橫幅，文字疊在影片下緣。</li>
-                <li>提案三：影片與下方三張形象圖並列，影片為主、圖為輔。</li>
               </ul>
             </div>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <CmsImage id="about.video.image1" label="形象圖一" className="aspect-[4/5] w-full" />
-            <CmsImage id="about.video.image2" label="形象圖二" className="aspect-[4/5] w-full" />
-            <CmsImage id="about.video.image3" label="形象圖三" className="aspect-[4/5] w-full" />
           </div>
         </section>
       </main>

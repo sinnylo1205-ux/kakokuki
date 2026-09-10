@@ -33,9 +33,6 @@ function CollectionPage() {
         <div className="mt-20">
           <ProductCarousel title={t("rows.row2")} products={products} variant="box" />
         </div>
-        <div className="mt-20">
-          <ProductCarousel title={t("rows.row3")} products={products} namePrefix="ip" />
-        </div>
       </main>
       <SiteFooter />
     </div>

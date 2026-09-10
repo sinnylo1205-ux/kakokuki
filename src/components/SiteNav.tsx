@@ -16,9 +16,9 @@ export function SiteNav() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-card">
-      <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between gap-6 px-6 md:h-24 md:px-10">
+      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-6 px-6 md:h-20 md:px-10">
         <Link to="/" aria-label="KAKO KUKI 首頁" className="shrink-0">
-          <img src={customLogo || logo.url} alt="KAKO KUKI" className="h-10 w-auto md:h-16" />
+          <img src={customLogo || logo.url} alt="KAKO KUKI" className="h-8 w-auto md:h-12" />
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-8 lg:flex">
@@ -47,7 +47,7 @@ export function SiteNav() {
         </div>
       </div>
 
-      <nav className="flex items-center justify-center gap-4 border-t border-border px-4 py-3 lg:hidden">
+      <nav className="flex items-center justify-center gap-4 border-t border-border px-4 py-2 lg:hidden">
         {navLinks.map((l) => (
           <Link key={l.to} to={l.to} className="text-xs tracking-[0.08em]">
             {l.label}

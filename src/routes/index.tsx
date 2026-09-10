@@ -1,11 +1,8 @@
-import { useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronRight } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CmsImage } from "@/components/CmsImage";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
-import { Button } from "@/components/ui/button";
 import { useCmsPage } from "@/lib/cms";
 import cookie1 from "@/assets/fortune-cookie-1.png.asset.json";
 import cookie2 from "@/assets/fortune-cookie-2.png.asset.json";
@@ -32,25 +29,10 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const t = useCmsPage("home");
-  const collaborationTrackRef = useRef<HTMLDivElement>(null);
   const defaultCookies = [cookie1.url, cookie2.url, cookie3.url, cookie4.url, cookie5.url];
   const cookies = defaultCookies.map(
     (fallback, index) => t(`section4.cookie${index + 1}`) || fallback,
   );
-  const collaborations = Array.from({ length: 6 }, (_, index) => ({
-    title: t(`section3.item${index + 1}Title`),
-    imageId: `home.section3.item${index + 1}Image`,
-  }));
-
-  const scrollCollaborations = () => {
-    const track = collaborationTrackRef.current;
-    if (!track) return;
-    const nextPosition = track.scrollLeft + track.clientWidth * 0.82;
-    track.scrollTo({
-      left: nextPosition >= track.scrollWidth - track.clientWidth ? 0 : nextPosition,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -64,10 +46,10 @@ function Index() {
         className="aspect-[4/3] w-full sm:aspect-video"
       />
 
-      <main className="mx-auto max-w-[1400px] px-6 md:px-10">
+      <main>
         {/* 區塊二 */}
         <section className="border-t border-border py-10 md:py-14">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 px-6 sm:grid-cols-2 md:px-10">
             <Link to="/collection" className="block">
               <CmsImage
                 id="home.section2.card1Image"
@@ -88,31 +70,15 @@ function Index() {
         </section>
 
         {/* 區塊三 */}
-        <section className="relative border-t border-border py-16 md:py-24">
-          <div
-            ref={collaborationTrackRef}
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto pr-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {collaborations.map((item, index) => (
-              <Link
-                key={index}
-                to="/collection"
-                className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31%]"
-              >
-                <CmsImage id={item.imageId} label={item.title} className="aspect-[3/4]" />
-              </Link>
-            ))}
-          </div>
-          <Button
-            type="button"
-            variant="outline"
-            size="icon"
-            onClick={scrollCollaborations}
-            aria-label="向右瀏覽更多聯名系列"
-            className="absolute right-3 top-1/2 z-10 h-12 w-12 -translate-y-1/2 rounded-full border-foreground/30 bg-background/90 shadow-md md:right-5"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </Button>
+        <section className="border-t border-border py-10 md:py-14">
+          <Link to="/custom" className="block w-full">
+            <CmsImage
+              id="home.section3.bannerImage"
+              label={t("section3.bannerTitle")}
+              sublabel="橫幅圖片"
+              className="aspect-[16/7] w-full sm:aspect-[21/8]"
+            />
+          </Link>
         </section>
 
         {/* 區塊四 */}
