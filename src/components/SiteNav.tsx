@@ -16,9 +16,9 @@ export function SiteNav() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-card">
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-6 px-6 md:h-20 md:px-10">
+      <div className="mx-auto flex h-12 max-w-[1400px] items-center justify-between gap-6 px-6 md:h-14 md:px-10">
         <Link to="/" aria-label="KAKO KUKI 首頁" className="shrink-0">
-          <img src={customLogo || logo.url} alt="KAKO KUKI" className="h-8 w-auto md:h-12" />
+          <img src={customLogo || logo.url} alt="KAKO KUKI" className="h-7 w-auto md:h-9" />
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-8 lg:flex">
