@@ -31,8 +31,8 @@ export const navCopy = {
   },
   custom: {
     id: "nav.custom",
-    label: "選單：企業合作（原「企業客製化專區」，名稱待定稿）",
-    zh: "企業合作",
+    label: "選單：企業專區（原「企業客製化專區」，名稱待定稿）",
+    zh: "企業專區",
     pending: true,
   },
   cart: {
