@@ -64,7 +64,7 @@ export const defaultCms: CmsPage[] = [
           { key: "linkAbout", label: "選單一：品牌簡介", type: "text", value: "品牌簡介" },
           { key: "linkCollection", label: "選單二：商品總覽", type: "text", value: "探索我們的籤餅" },
           { key: "linkArt", label: "選單三：藝術專區", type: "text", value: "以藝向善" },
-          { key: "linkCustom", label: "選單四：企業合作", type: "text", value: "企業合作" },
+          { key: "linkCustom", label: "選單四：企業專區", type: "text", value: "企業專區" },
           { key: "cartLabel", label: "我的選物清單名稱", type: "text", value: "我的選物清單" },
         ],
       },
@@ -201,7 +201,7 @@ export const defaultCms: CmsPage[] = [
   },
   {
     key: "custom",
-    name: "企業合作",
+    name: "企業專區",
     path: "/custom",
     sections: [
       {
